@@ -3,7 +3,8 @@
 @theme {
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
-  --font-script: var(--font-script);
+  --font-syne: var(--font-display);
+  /* backward compatibility */
   --font-mono: var(--font-mono);
 
   --color-bg-primary: var(--bg-primary);
@@ -22,17 +23,17 @@
 /* Base Design Tokens - Light Theme Default */
 :root {
   /* Colors - Light Theme */
-  --bg-primary: #FDFCF5;
-  --bg-secondary: #FFFFFF;
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
   --bg-glass: rgba(0, 0, 0, 0.02);
   --bg-glass-hover: rgba(0, 0, 0, 0.04);
   --border-glass: rgba(0, 0, 0, 0.06);
   --border-glass-hover: rgba(0, 0, 0, 0.12);
-  --text-primary: #1E2A38;
-  --text-secondary: #4A5568;
-  --text-muted: #9CA3AF;
-  --accent-primary: #D96C4A;
-  --accent-secondary: #2D726D;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #a1a1aa;
+  --accent-primary: #18181b;
+  --accent-secondary: #71717a;
 
   /* Glow Effects */
   --glow-purple: 0 0 20px rgba(108, 92, 231, 0.15);
@@ -54,17 +55,17 @@
 /* Dark Theme overrides via next-themes */
 .dark,
 :root.dark {
-  --bg-primary: #1A1817;
-  --bg-secondary: #24211F;
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
   --bg-glass: rgba(255, 255, 255, 0.03);
   --bg-glass-hover: rgba(255, 255, 255, 0.06);
-  --border-glass: rgba(255, 255, 255, 0.05);
-  --border-glass-hover: rgba(255, 255, 255, 0.1);
-  --text-primary: #F4F0EA;
-  --text-secondary: #ABA499;
-  --text-muted: #7A7571;
-  --accent-primary: #E29578;
-  --accent-secondary: #52796F;
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-hover: rgba(255, 255, 255, 0.15);
+  --text-primary: #ededed;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-primary: #ffffff;
+  --accent-secondary: #d4d4d8;
 
   --glow-purple: 0 0 20px rgba(108, 92, 231, 0.3);
   --glow-teal: 0 0 20px rgba(0, 206, 201, 0.3);

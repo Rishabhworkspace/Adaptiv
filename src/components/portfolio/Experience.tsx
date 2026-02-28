@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GlassCard } from '@/components/ui/GlassCard';
 import { Experience as ExperienceType } from '@/types/portfolio';
 
 interface ExperienceProps {
