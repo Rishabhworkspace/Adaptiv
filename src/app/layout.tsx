@@ -1,37 +1,23 @@
-import type { Metadata } from 'next';
-import { Inter, Outfit, JetBrains_Mono } from 'next/font/google';
-import './globals.css';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
-});
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
+  variable: "--font-inter",
+  subsets: ["latin"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: 'Rishabh Tripathi | Adaptive Portfolio',
-  description: 'AI-Powered Personal Portfolio',
+  title: "Rishabh Tripathi — Portfolio",
+  description: "A portfolio that adapts to you.",
 };
 
-export const viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f9fa' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0f' }
-  ],
-};
+import { PortfolioProvider } from "@/components/portfolio/PortfolioProvider";
 
 export default function RootLayout({
   children,
@@ -39,16 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
-      <body className="antialiased font-sans bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased font-sans`}>
+        <PortfolioProvider>
           {children}
-        </ThemeProvider>
+        </PortfolioProvider>
       </body>
     </html>
   );

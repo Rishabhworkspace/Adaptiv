@@ -4,45 +4,50 @@
         "items": [
             {
                 "name": "React",
-                "proficiency": "advanced",
+                "proficiency": "expert",
                 "keywords": [
-                    "react",
                     "ui",
                     "spa",
-                    "frontend",
-                    "components"
+                    "components",
+                    "hooks"
                 ]
             },
             {
                 "name": "Next.js",
-                "proficiency": "advanced",
+                "proficiency": "expert",
                 "keywords": [
-                    "nextjs",
                     "ssr",
                     "ssg",
-                    "react framework",
-                    "frontend"
+                    "seo",
+                    "app router",
+                    "performance"
                 ]
             },
             {
                 "name": "TailwindCSS",
                 "proficiency": "advanced",
                 "keywords": [
-                    "tailwindcss",
-                    "css",
                     "styling",
-                    "frontend"
+                    "responsive",
+                    "design system"
                 ]
             },
             {
-                "name": "HTML/CSS/JS",
+                "name": "JavaScript/TypeScript",
                 "proficiency": "expert",
                 "keywords": [
-                    "html",
-                    "css",
-                    "javascript",
-                    "web",
-                    "frontend"
+                    "language",
+                    "types",
+                    "es6"
+                ]
+            },
+            {
+                "name": "HTML/CSS",
+                "proficiency": "expert",
+                "keywords": [
+                    "semantic",
+                    "layout",
+                    "styling"
                 ]
             }
         ]
@@ -54,39 +59,36 @@
                 "name": "Node.js",
                 "proficiency": "advanced",
                 "keywords": [
-                    "nodejs",
-                    "backend",
                     "server",
-                    "javascript",
-                    "api"
+                    "api",
+                    "runtime"
                 ]
             },
             {
                 "name": "Express",
                 "proficiency": "advanced",
                 "keywords": [
-                    "express",
-                    "node",
-                    "backend",
-                    "api"
+                    "server",
+                    "routing",
+                    "middleware"
                 ]
             },
             {
                 "name": "Python",
                 "proficiency": "intermediate",
                 "keywords": [
-                    "python",
-                    "backend",
+                    "language",
                     "scripting",
-                    "ai"
+                    "ai",
+                    "data"
                 ]
             },
             {
                 "name": "Java",
                 "proficiency": "intermediate",
                 "keywords": [
-                    "java",
-                    "backend",
+                    "language",
+                    "oop",
                     "enterprise"
                 ]
             },
@@ -94,88 +96,52 @@
                 "name": "C/C++",
                 "proficiency": "intermediate",
                 "keywords": [
-                    "c++",
-                    "c",
                     "systems",
+                    "performance",
+                    "foundations",
                     "dsa"
                 ]
             }
         ]
     },
     {
-        "category": "Database & Cloud",
+        "category": "Databases & Tools",
         "items": [
             {
                 "name": "MongoDB",
                 "proficiency": "advanced",
                 "keywords": [
-                    "mongodb",
                     "nosql",
-                    "database"
+                    "database",
+                    "document"
                 ]
             },
             {
                 "name": "PostgreSQL / MySQL",
                 "proficiency": "intermediate",
                 "keywords": [
-                    "postgresql",
-                    "mysql",
                     "sql",
-                    "relational database"
+                    "database",
+                    "relational"
                 ]
             },
             {
                 "name": "Supabase",
-                "proficiency": "intermediate",
+                "proficiency": "advanced",
                 "keywords": [
-                    "supabase",
                     "baas",
-                    "postgrest"
+                    "auth",
+                    "realtime",
+                    "postgres"
                 ]
             },
             {
-                "name": "Vercel / Netlify",
+                "name": "Git / GitHub",
                 "proficiency": "advanced",
                 "keywords": [
-                    "vercel",
-                    "netlify",
-                    "deployment",
-                    "hosting"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "Specialties",
-        "items": [
-            {
-                "name": "AI/ML Integration",
-                "proficiency": "intermediate",
-                "keywords": [
-                    "ai",
-                    "machine learning",
-                    "llm",
-                    "gemini",
-                    "openai"
-                ]
-            },
-            {
-                "name": "Data Structures & Algorithms",
-                "proficiency": "advanced",
-                "keywords": [
-                    "dsa",
-                    "algorithms",
-                    "problem solving",
-                    "leetcode"
-                ]
-            },
-            {
-                "name": "Rapid Prototyping",
-                "proficiency": "advanced",
-                "keywords": [
-                    "prototyping",
-                    "hackathons",
-                    "mvp"
+                    "vcs",
+                    "collaboration",
+                    "ci/cd"
                 ]
             }
         ]

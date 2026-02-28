@@ -1,9 +1,9 @@
 [
     {
-        "id": "foodnest",
-        "title": "FoodNest",
-        "description": "A smart food discovery platform to discover food, not just locations.",
-        "longDescription": "Find the perfect cafe or restaurant near you in seconds. Smart filters, mood-based discovery (Chill Cafe, Date Night, etc.), and curated top picks tailored just for you.",
+        "id": "algoforge",
+        "title": "AlgoForge-2.0",
+        "description": "Advanced algorithm visualizer and learning platform.",
+        "longDescription": "Helping developers understand complex DSA concepts through visual interaction. Built for students to seamlessly grasp algorithmic flow and data structures.",
         "techStack": [
             "React",
             "Next.js",
@@ -11,90 +11,92 @@
         ],
         "category": [
             "frontend",
-            "fullstack"
-        ],
-        "liveUrl": "https://food-nest-nu.vercel.app/",
-        "githubUrl": "https://github.com/Rishabhworkspace/FoodNest",
-        "highlights": [
-            "Smart filters for precise discovery",
-            "Mood-based matching for specific vibes",
-            "Curated top picks and trending nearby spots"
-        ]
-    },
-    {
-        "id": "algoforge",
-        "title": "AlgoForge-2.0",
-        "description": "Advanced algorithm visualizer and learning platform.",
-        "longDescription": "Helping developers understand complex Data Structures and Algorithms concepts through visual interaction and step-by-step execution.",
-        "techStack": [
-            "React",
-            "Node.js",
-            "Algorithms"
-        ],
-        "category": [
-            "frontend",
             "education"
         ],
+        "image": "/images/projects/algoforge.jpg",
         "highlights": [
-            "Visualized execution of complex algorithms",
-            "Interactive learning modules"
+            "Visualized multiple complex sorting and pathfinding algorithms",
+            "Interactive controls for playing, pausing, and stepping through execution"
         ]
     },
     {
         "id": "vitravelbuddy",
         "title": "ViTravelBuddy",
         "description": "AI-powered travel companion for seamless journey planning.",
-        "longDescription": "An AI-powered application focused on seamless travel planning, integrating UX with powerful real-time planning capabilities.",
+        "longDescription": "Intelligent travel planner focusing on AI integration for real-time recommendations, UX, and efficient itinerary building.",
         "techStack": [
             "React",
-            "AI",
-            "Node.js"
+            "Node.js",
+            "AI Integration"
         ],
         "category": [
             "fullstack",
             "ai"
         ],
+        "image": "/images/projects/vitravelbuddy.jpg",
         "highlights": [
-            "AI integration for automated itinerary generation",
-            "Real-time planning and trip adjustments"
+            "Generated personalized itineraries based on user preferences",
+            "Integrated AI for smart routing and destination suggestions"
         ]
     },
     {
         "id": "levelup",
         "title": "LevelUp-",
         "description": "Gamified platform for skill development and personal growth.",
-        "longDescription": "A platform focused on motivation through gamification and progress tracking for users wanting to develop new skills.",
+        "longDescription": "A platform focused on motivation through gamification. Tracks progress and rewards users for hitting personal milestones.",
         "techStack": [
             "React",
-            "Node.js",
+            "Express",
             "MongoDB"
         ],
         "category": [
-            "fullstack",
-            "gamification"
+            "fullstack"
         ],
+        "image": "/images/projects/levelup.jpg",
         "highlights": [
-            "Gamified progress tracking",
-            "Interactive skill development pathways"
+            "Implemented gamification logic (points, badges, leaderboards)",
+            "Designed a dashboard for comprehensive progress tracking"
         ]
     },
     {
         "id": "mindcare",
         "title": "MindCare",
         "description": "A supportive platform for student mental well-being.",
-        "longDescription": "Built during the Smart India Hackathon to solve real-world student stressors and provide a supportive platform for mental health.",
+        "longDescription": "Built during the Smart India Hackathon to solve real-world student stressors based on actionable insights and supportive community features.",
         "techStack": [
             "React",
-            "Express",
-            "Node.js"
+            "Node.js",
+            "TailwindCSS"
         ],
         "category": [
             "fullstack",
-            "social-good"
+            "health"
         ],
+        "image": "/images/projects/mindcare.jpg",
         "highlights": [
-            "Developed under pressure during Smart India Hackathon",
-            "Targeted at real-world student mental health stressors"
+            "Developed during the intensive Smart India Hackathon",
+            "Designed specifically for student-centric mental health support"
+        ]
+    },
+    {
+        "id": "foodnest",
+        "title": "FoodNest",
+        "description": "A smart food discovery platform. Discover Food, Not Just Locations.",
+        "longDescription": "Smart filters, mood-based discovery (Chill Cafe, Date Night, etc.), and curated top picks built for rapid and relevant food exploration.",
+        "techStack": [
+            "Next.js",
+            "React",
+            "TailwindCSS"
+        ],
+        "category": [
+            "frontend"
+        ],
+        "liveUrl": "https://food-nest-nu.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/FoodNest",
+        "image": "/images/projects/foodnest.jpg",
+        "highlights": [
+            "Implemented intent-based discovery filtering",
+            "Sleek intuitive UI for rapid exploration of nearby eateries"
         ]
     }
 ]

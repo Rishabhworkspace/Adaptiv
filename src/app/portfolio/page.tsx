@@ -1,56 +1,46 @@
-import React from 'react';
-import { Navbar } from '@/components/ui/Navbar';
-import { Footer } from '@/components/ui/Footer';
-import { Hero } from '@/components/portfolio/Hero';
-import { Projects } from '@/components/portfolio/Projects';
-import { Skills } from '@/components/portfolio/Skills';
-import { Experience } from '@/components/portfolio/Experience';
-import { Contact } from '@/components/portfolio/Contact';
+"use client";
 
-// In Phase 2, we directly load static JSON data
-import profileData from '@/data/profile.json';
-import projectsData from '@/data/projects.json';
-import skillsData from '@/data/skills.json';
-import experienceData from '@/data/experience.json';
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { Hero } from "@/components/portfolio/Hero";
+import { Projects } from "@/components/portfolio/Projects";
+import { Skills } from "@/components/portfolio/Skills";
+import { Experience } from "@/components/portfolio/Experience";
+import { Contact } from "@/components/portfolio/Contact";
+import { WhyMe } from "@/components/portfolio/WhyMe";
+import { usePortfolio } from "@/components/portfolio/PortfolioProvider";
+import { Skeleton } from "@/components/ui/Skeleton";
+import { GlassCard } from "@/components/ui/GlassCard";
 
-import { Profile, Project, SkillCategory, Experience as ExperienceType } from '@/types/portfolio';
-
-// Type casting for base static data
-const profile = profileData as Profile;
-const projects = projectsData as Project[];
-const skills = skillsData as SkillCategory[];
-const experiences = experienceData as ExperienceType[];
-
-export default async function PortfolioPage({
-    searchParams,
-}: {
-    searchParams: Promise<{ company?: string; role?: string }>;
-}) {
-    const params = await searchParams;
-    // In Phase 2, we read the query params to fake the URL structure, 
-    // but don't do server-side AI generation yet.
-    const tailoredFor = params.company ? {
-        company: params.company as string,
-        role: (params.role as string) || 'Recruiter'
-    } : undefined;
+export default function PortfolioPage() {
+    const { data, isGenerating, context } = usePortfolio();
 
     return (
         <>
             <Navbar />
-            <main className="flex min-h-screen flex-col items-center justify-between">
-                <Hero profile={profile} tailoredFor={tailoredFor} />
+            <main className="container-custom pt-24 min-h-screen">
+                {isGenerating && (
+                    <div className="fixed top-24 right-8 z-50">
+                        <GlassCard className="py-2 px-4 flex items-center gap-3 border-[#00cec9]/50 bg-black/80 backdrop-blur-xl">
+                            <Skeleton className="w-4 h-4 rounded-full bg-[#00cec9]" />
+                            <span className="text-sm font-mono text-white">Analyzing {context?.company}...</span>
+                        </GlassCard>
+                    </div>
+                )}
 
-                {/* Sub-components get the base data for Phase 2 */}
-                <div className="relative w-full">
-                    <Projects projects={projects} />
+                {context && !isGenerating && (
+                    <div className="mb-4 inline-block font-mono text-xs text-[#00cec9] border border-[#00cec9]/30 bg-[#00cec9]/5 px-3 py-1 rounded-full">
+                        ✨ Tailored for: {context.company} • {context.role}
+                    </div>
+                )}
 
-                    <div className="absolute top-1/2 left-0 w-full h-[800px] bg-[#6c5ce7]/5 blur-[120px] -z-10 pointer-events-none rounded-full transform -translate-y-1/2"></div>
-
-                    {/* Note: In Phase 3 we will extract & separate "Why I'm a Great Fit" logic */}
-
-                    <Skills skillCategories={skills} />
-                    <Experience experiences={experiences} />
-                    <Contact profile={profile} />
+                <div className={isGenerating ? "opacity-50 blur-sm pointer-events-none transition-all duration-1000" : "transition-all duration-1000"}>
+                    <Hero profile={data.profile} />
+                    <Projects projects={data.projects} />
+                    <Skills categories={data.skills} />
+                    {data.whyMe && <WhyMe whyMe={data.whyMe} context={context} />}
+                    <Experience experiences={data.experience} />
+                    <Contact email={data.profile.email} />
                 </div>
             </main>
             <Footer />

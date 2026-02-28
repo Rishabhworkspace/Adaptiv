@@ -1,98 +1,97 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { Button } from '@/components/ui/Button';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { GlassCard } from "@/components/ui/GlassCard";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Skeleton } from "@/components/ui/Skeleton";
+import { usePortfolio } from "@/components/portfolio/PortfolioProvider";
 
-export default function LandingPage() {
+export default function Home() {
   const router = useRouter();
-  const [company, setCompany] = useState('');
-  const [role, setRole] = useState('');
+  const { personalize, reset, isGenerating } = usePortfolio();
+  const [company, setCompany] = useState("");
+  const [role, setRole] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!company) return;
+  const handlePersonalize = async () => {
+    if (!company || !role) return;
 
-    // In Phase 3, this will send data to the API to personalize.
-    // For now, just forward to the portfolio page with query params.
-    const query = new URLSearchParams();
-    query.set('company', company);
-    if (role) query.set('role', role);
+    // We navigate to portfolio first so user sees the skeleton loading state there
+    router.push("/portfolio");
 
-    router.push(`/portfolio?${query.toString()}`);
+    // Then trigger personalization
+    personalize(company, role);
+  };
+
+  const handleSkip = () => {
+    reset(); // Clear context, use flat data
+    router.push("/portfolio");
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center relative px-6 overflow-hidden">
+    <main className="container-custom flex items-center justify-center min-h-screen relative overflow-hidden">
+      {/* Background ambient effect */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(108,92,231,0.05)_0%,transparent_70%)]"></div>
 
-      {/* Ambient Animated Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[20%] left-[20%] w-[600px] h-[600px] bg-[#6c5ce7]/10 rounded-full blur-[150px] mix-blend-screen animate-pulse"></div>
-        <div className="absolute bottom-[20%] right-[20%] w-[500px] h-[500px] bg-[#00cec9]/10 rounded-full blur-[120px] mix-blend-screen animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
-      </div>
-
-      <div className="z-10 w-full max-w-md animate-fadeInUp">
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold tracking-tight text-[#f0f0f5] mb-2">
-            Adaptive <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c5ce7] to-[#00cec9]">Portfolio</span>
-          </h1>
-          <p className="text-[#8a8a9a] text-sm font-mono uppercase tracking-widest">
-            A portfolio that adapts to you.
+      <div className="max-w-xl w-full mx-auto space-y-12 relative z-10">
+        <header className="text-center animate-fade-in-up">
+          <p className="text-[#00cec9] font-mono mb-4 text-sm tracking-widest">
+            /// SYSTEM_START
           </p>
-        </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 font-sans tracking-tight">
+            Adaptive <span className="text-gradient hover:drop-shadow-[0_0_15px_rgba(108,92,231,0.5)] transition-all">Portfolio</span>
+          </h1>
+          <p className="text-lg text-[#8a8a9a] max-w-md mx-auto font-sans leading-relaxed">
+            A portfolio that actively rewrites itself to prove why I'm the perfect fit for your role.
+          </p>
+        </header>
 
-        <GlassCard variant="elevated">
-          <form onSubmit={handleSubmit} className="space-y-6">
-
-            <div className="space-y-2">
-              <label htmlFor="company" className="block text-sm font-medium text-[#8a8a9a]">
-                Company Name <span className="text-[#e17055]">*</span>
-              </label>
-              <input
-                id="company"
-                type="text"
-                required
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                placeholder="e.g. Google, Stripe, Startup Inc."
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0f]/50 border border-white/[0.08] text-[#f0f0f5] placeholder-[#4a4a5a] focus:outline-none focus:border-[#6c5ce7] focus:ring-1 focus:ring-[#6c5ce7] transition-all"
-              />
-            </div>
+        <div className="stagger-children space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <GlassCard elevated className="p-8 text-center space-y-8 relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#6c5ce7] to-transparent opacity-50"></div>
 
             <div className="space-y-2">
-              <label htmlFor="role" className="block text-sm font-medium text-[#8a8a9a]">
-                Role / Position
-              </label>
-              <input
-                id="role"
-                type="text"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                placeholder="e.g. Frontend Engineer, Technical Recruiter"
-                className="w-full px-4 py-3 rounded-xl bg-[#0a0a0f]/50 border border-white/[0.08] text-[#f0f0f5] placeholder-[#4a4a5a] focus:outline-none focus:border-[#6c5ce7] focus:ring-1 focus:ring-[#6c5ce7] transition-all"
-              />
+              <h2 className="text-2xl font-semibold font-sans text-white">Who are you?</h2>
+              <p className="text-[#8a8a9a] text-sm">Provide your context to see the magic.</p>
             </div>
 
-            <div className="pt-2">
-              <Button type="submit" variant="primary" fullWidth size="lg" disabled={!company}>
-                View Portfolio →
+            <div className="space-y-4 max-w-sm mx-auto">
+              <div className="text-left space-y-1">
+                <label className="text-xs font-mono text-[#00cec9] ml-1">COMPANY</label>
+                <Input
+                  placeholder="e.g. Google, Stripe, Startup"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  disabled={isGenerating}
+                />
+              </div>
+              <div className="text-left space-y-1">
+                <label className="text-xs font-mono text-[#00cec9] ml-1">ROLE</label>
+                <Input
+                  placeholder="e.g. Frontend Engineer, SDE2"
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  disabled={isGenerating}
+                />
+              </div>
+            </div>
+
+            <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+              <Button variant="outline" onClick={handleSkip} disabled={isGenerating}>
+                View Standard
+              </Button>
+              <Button
+                variant="primary"
+                onClick={handlePersonalize}
+                disabled={!company || !role || isGenerating}
+                className="disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isGenerating ? "Connecting to AI..." : "Personalize Portfolio"}
               </Button>
             </div>
-
-            <div className="text-center mt-6">
-              <button
-                type="button"
-                onClick={() => router.push('/portfolio')}
-                className="text-xs text-[#4a4a5a] hover:text-[#8a8a9a] underline underline-offset-4 transition-colors font-mono"
-              >
-                Skip personalization // View static version
-              </button>
-            </div>
-
-          </form>
-        </GlassCard>
+          </GlassCard>
+        </div>
       </div>
     </main>
   );
