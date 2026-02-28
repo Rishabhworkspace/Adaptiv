@@ -1,0 +1,183 @@
+[
+    {
+        "category": "Frontend",
+        "items": [
+            {
+                "name": "React",
+                "proficiency": "advanced",
+                "keywords": [
+                    "react",
+                    "ui",
+                    "spa",
+                    "frontend",
+                    "components"
+                ]
+            },
+            {
+                "name": "Next.js",
+                "proficiency": "advanced",
+                "keywords": [
+                    "nextjs",
+                    "ssr",
+                    "ssg",
+                    "react framework",
+                    "frontend"
+                ]
+            },
+            {
+                "name": "TailwindCSS",
+                "proficiency": "advanced",
+                "keywords": [
+                    "tailwindcss",
+                    "css",
+                    "styling",
+                    "frontend"
+                ]
+            },
+            {
+                "name": "HTML/CSS/JS",
+                "proficiency": "expert",
+                "keywords": [
+                    "html",
+                    "css",
+                    "javascript",
+                    "web",
+                    "frontend"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Backend",
+        "items": [
+            {
+                "name": "Node.js",
+                "proficiency": "advanced",
+                "keywords": [
+                    "nodejs",
+                    "backend",
+                    "server",
+                    "javascript",
+                    "api"
+                ]
+            },
+            {
+                "name": "Express",
+                "proficiency": "advanced",
+                "keywords": [
+                    "express",
+                    "node",
+                    "backend",
+                    "api"
+                ]
+            },
+            {
+                "name": "Python",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "python",
+                    "backend",
+                    "scripting",
+                    "ai"
+                ]
+            },
+            {
+                "name": "Java",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "java",
+                    "backend",
+                    "enterprise"
+                ]
+            },
+            {
+                "name": "C/C++",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "c++",
+                    "c",
+                    "systems",
+                    "dsa"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Database & Cloud",
+        "items": [
+            {
+                "name": "MongoDB",
+                "proficiency": "advanced",
+                "keywords": [
+                    "mongodb",
+                    "nosql",
+                    "database"
+                ]
+            },
+            {
+                "name": "PostgreSQL / MySQL",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "postgresql",
+                    "mysql",
+                    "sql",
+                    "relational database"
+                ]
+            },
+            {
+                "name": "Supabase",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "supabase",
+                    "baas",
+                    "postgrest"
+                ]
+            },
+            {
+                "name": "Vercel / Netlify",
+                "proficiency": "advanced",
+                "keywords": [
+                    "vercel",
+                    "netlify",
+                    "deployment",
+                    "hosting"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Specialties",
+        "items": [
+            {
+                "name": "AI/ML Integration",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "ai",
+                    "machine learning",
+                    "llm",
+                    "gemini",
+                    "openai"
+                ]
+            },
+            {
+                "name": "Data Structures & Algorithms",
+                "proficiency": "advanced",
+                "keywords": [
+                    "dsa",
+                    "algorithms",
+                    "problem solving",
+                    "leetcode"
+                ]
+            },
+            {
+                "name": "Rapid Prototyping",
+                "proficiency": "advanced",
+                "keywords": [
+                    "prototyping",
+                    "hackathons",
+                    "mvp"
+                ]
+            }
+        ]
+    }
+]

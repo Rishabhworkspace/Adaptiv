@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-script: var(--font-script);
+  --font-mono: var(--font-mono);
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-glass: var(--bg-glass);
+  --color-bg-glass-hover: var(--bg-glass-hover);
+  --color-border-glass: var(--border-glass);
+  --color-border-glass-hover: var(--border-glass-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+}
+
+/* Base Design Tokens - Light Theme Default */
+:root {
+  /* Colors - Light Theme */
+  --bg-primary: #FDFCF5;
+  --bg-secondary: #FFFFFF;
+  --bg-glass: rgba(0, 0, 0, 0.02);
+  --bg-glass-hover: rgba(0, 0, 0, 0.04);
+  --border-glass: rgba(0, 0, 0, 0.06);
+  --border-glass-hover: rgba(0, 0, 0, 0.12);
+  --text-primary: #1E2A38;
+  --text-secondary: #4A5568;
+  --text-muted: #9CA3AF;
+  --accent-primary: #D96C4A;
+  --accent-secondary: #2D726D;
+
+  /* Glow Effects */
+  --glow-purple: 0 0 20px rgba(108, 92, 231, 0.15);
+  --glow-teal: 0 0 20px rgba(0, 206, 201, 0.15);
+  --glow-soft: 0 0 40px rgba(108, 92, 231, 0.05);
+
+  /* Spacing Scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --section-gap: 8rem;
+}
+
+/* Dark Theme overrides via next-themes */
+.dark,
+:root.dark {
+  --bg-primary: #1A1817;
+  --bg-secondary: #24211F;
+  --bg-glass: rgba(255, 255, 255, 0.03);
+  --bg-glass-hover: rgba(255, 255, 255, 0.06);
+  --border-glass: rgba(255, 255, 255, 0.05);
+  --border-glass-hover: rgba(255, 255, 255, 0.1);
+  --text-primary: #F4F0EA;
+  --text-secondary: #ABA499;
+  --text-muted: #7A7571;
+  --accent-primary: #E29578;
+  --accent-secondary: #52796F;
+
+  --glow-purple: 0 0 20px rgba(108, 92, 231, 0.3);
+  --glow-teal: 0 0 20px rgba(0, 206, 201, 0.3);
+  --glow-soft: 0 0 40px rgba(108, 92, 231, 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: Arial, Helvetica, sans-serif;
+    /* will be overridden by next/font */
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .shadow-purple-glow {
+    box-shadow: var(--glow-purple);
+  }
+
+  .shadow-teal-glow {
+    box-shadow: var(--glow-teal);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered Children Animation */
+.stagger-children>* {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-children>*:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-children>*:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-children>*:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stagger-children>*:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.stagger-children>*:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.stagger-children>*:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Skeleton Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--bg-glass) 25%,
+      rgba(255, 255, 255, 0.08) 50%,
+      var(--bg-glass) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}

@@ -1,0 +1,65 @@
+[
+    {
+        "id": "exp_always_shipping",
+        "milestone": "ALWAYS_SHIPPING",
+        "role": "Full Stack Developer & Problem Solver",
+        "duration": "Current",
+        "description": "Exploring AI/ML and integrating it into web projects. Grinding LeetCode to strengthen DSA skills and building complex full-stack applications.",
+        "highlights": [
+            "Building AlgoForge, ViTravelBuddy, FoodNest, and more",
+            "Focusing on high-performance NeoBrutalist and Glassmorphism web experiences"
+        ],
+        "techUsed": [
+            "React",
+            "Next.js",
+            "AI",
+            "Algorithms"
+        ]
+    },
+    {
+        "id": "exp_sih",
+        "milestone": "SMART_INDIA_HACKATHON",
+        "role": "Hackathon Participant",
+        "duration": "Past",
+        "description": "Participated in the Smart India Hackathon and built MindCare. Collaborated with a team to solve real-world problems through technology.",
+        "highlights": [
+            "Built 'MindCare' - a supportive platform for student mental well-being",
+            "Gained experience in rapid prototyping under pressure"
+        ],
+        "techUsed": [
+            "React",
+            "Node.js",
+            "Team Collaboration"
+        ]
+    },
+    {
+        "id": "exp_level_up",
+        "milestone": "LEVEL_UP",
+        "role": "Self-Taught Full Stack Developer",
+        "duration": "Past",
+        "description": "Transitioned from static websites to full-stack applications. Picked up modern frameworks and started working with databases.",
+        "highlights": [
+            "Learned React, Next.js, Node.js, and TailwindCSS",
+            "Started working with MongoDB, MySQL, and Supabase",
+            "Deployed projects on Vercel, Netlify, and Render"
+        ]
+    },
+    {
+        "id": "exp_self_taught",
+        "milestone": "SELF_TAUGHT",
+        "role": "Frontend Explorer",
+        "duration": "Past",
+        "description": "Learned HTML, CSS, and JavaScript from scratch. Discovered the power of frontend frameworks.",
+        "highlights": [
+            "Built first static websites and landing pages"
+        ]
+    },
+    {
+        "id": "exp_hello_world",
+        "milestone": "HELLO_WORLD",
+        "role": "Beginner Programmer",
+        "duration": "Past",
+        "description": "Wrote first lines of code in C & C++. Fell in love with problem-solving and logic building. Started exploring how the internet works.",
+        "highlights": []
+    }
+]

@@ -1,0 +1,100 @@
+[
+    {
+        "id": "foodnest",
+        "title": "FoodNest",
+        "description": "A smart food discovery platform to discover food, not just locations.",
+        "longDescription": "Find the perfect cafe or restaurant near you in seconds. Smart filters, mood-based discovery (Chill Cafe, Date Night, etc.), and curated top picks tailored just for you.",
+        "techStack": [
+            "React",
+            "Next.js",
+            "TailwindCSS"
+        ],
+        "category": [
+            "frontend",
+            "fullstack"
+        ],
+        "liveUrl": "https://food-nest-nu.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/FoodNest",
+        "highlights": [
+            "Smart filters for precise discovery",
+            "Mood-based matching for specific vibes",
+            "Curated top picks and trending nearby spots"
+        ]
+    },
+    {
+        "id": "algoforge",
+        "title": "AlgoForge-2.0",
+        "description": "Advanced algorithm visualizer and learning platform.",
+        "longDescription": "Helping developers understand complex Data Structures and Algorithms concepts through visual interaction and step-by-step execution.",
+        "techStack": [
+            "React",
+            "Node.js",
+            "Algorithms"
+        ],
+        "category": [
+            "frontend",
+            "education"
+        ],
+        "highlights": [
+            "Visualized execution of complex algorithms",
+            "Interactive learning modules"
+        ]
+    },
+    {
+        "id": "vitravelbuddy",
+        "title": "ViTravelBuddy",
+        "description": "AI-powered travel companion for seamless journey planning.",
+        "longDescription": "An AI-powered application focused on seamless travel planning, integrating UX with powerful real-time planning capabilities.",
+        "techStack": [
+            "React",
+            "AI",
+            "Node.js"
+        ],
+        "category": [
+            "fullstack",
+            "ai"
+        ],
+        "highlights": [
+            "AI integration for automated itinerary generation",
+            "Real-time planning and trip adjustments"
+        ]
+    },
+    {
+        "id": "levelup",
+        "title": "LevelUp-",
+        "description": "Gamified platform for skill development and personal growth.",
+        "longDescription": "A platform focused on motivation through gamification and progress tracking for users wanting to develop new skills.",
+        "techStack": [
+            "React",
+            "Node.js",
+            "MongoDB"
+        ],
+        "category": [
+            "fullstack",
+            "gamification"
+        ],
+        "highlights": [
+            "Gamified progress tracking",
+            "Interactive skill development pathways"
+        ]
+    },
+    {
+        "id": "mindcare",
+        "title": "MindCare",
+        "description": "A supportive platform for student mental well-being.",
+        "longDescription": "Built during the Smart India Hackathon to solve real-world student stressors and provide a supportive platform for mental health.",
+        "techStack": [
+            "React",
+            "Express",
+            "Node.js"
+        ],
+        "category": [
+            "fullstack",
+            "social-good"
+        ],
+        "highlights": [
+            "Developed under pressure during Smart India Hackathon",
+            "Targeted at real-world student mental health stressors"
+        ]
+    }
+]
