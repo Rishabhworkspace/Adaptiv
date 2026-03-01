@@ -5,12 +5,12 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export function Contact({ email }: { email: string }) {
-    const [status, setStatus] = useState<"idle" | "submitting" | "redirected">("idle");
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
     const formRef = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
-        if (status === "redirected") {
+        if (status === "success") {
             timeout = setTimeout(() => {
                 formRef.current?.reset();
                 if (formRef.current) {
@@ -25,21 +25,27 @@ export function Contact({ email }: { email: string }) {
         return () => clearTimeout(timeout);
     }, [status]);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus("submitting");
 
         const formData = new FormData(e.currentTarget);
-        const name = formData.get("name") as string;
-        const senderEmail = formData.get("email") as string;
-        const message = formData.get("message") as string;
 
-        const subject = encodeURIComponent(`New Contact from ${name}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${senderEmail}\n\nMessage:\n${message}`);
+        try {
+            const res = await fetch("https://formspree.io/f/mbdaeodd", {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+            });
 
-        window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-
-        setStatus("redirected");
+            if (res.ok) {
+                setStatus("success");
+            } else {
+                setStatus("error");
+            }
+        } catch {
+            setStatus("error");
+        }
     };
 
     return (
@@ -122,11 +128,11 @@ export function Contact({ email }: { email: string }) {
                     <div className="flex justify-center pt-8">
                         <button
                             type="submit"
-                            disabled={status === "submitting" || status === "redirected"}
+                            disabled={status === "submitting" || status === "success"}
                             className="group flex items-center justify-center gap-4 text-xl font-medium hover:text-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <span className="relative">
-                                {status === "redirected" ? "Please complete in your mail client" : "Send Message"}
+                                {status === "submitting" ? "Sending..." : status === "success" ? "Message Sent ✓" : status === "error" ? "Failed — Try Again" : "Send Message"}
                                 <span className="absolute bottom-0 left-0 w-full h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                             </span>
                             <Send size={20} className="transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 opacity-70 group-hover:opacity-100 group-hover:text-accent" />

@@ -22,6 +22,27 @@
         ]
     },
     {
+        "id": "foodnest",
+        "title": "FoodNest",
+        "description": "A smart food discovery platform. Discover Food, Not Just Locations.",
+        "longDescription": "Smart filters, mood-based discovery (Chill Cafe, Date Night, etc.), and curated top picks built for rapid and relevant food exploration.",
+        "techStack": [
+            "Next.js",
+            "React",
+            "TailwindCSS"
+        ],
+        "category": [
+            "frontend"
+        ],
+        "liveUrl": "https://food-nest-nu.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/FoodNest",
+        "image": "/images/projects/foodnest.png",
+        "highlights": [
+            "Implemented intent-based discovery filtering",
+            "Sleek intuitive UI for rapid exploration of nearby eateries"
+        ]
+    },
+    {
         "id": "vitravelbuddy",
         "title": "ViTravelBuddy",
         "description": "AI-powered travel companion for seamless journey planning.",
@@ -84,27 +105,6 @@
         "highlights": [
             "Developed during the intensive Smart India Hackathon",
             "Designed specifically for student-centric mental health support"
-        ]
-    },
-    {
-        "id": "foodnest",
-        "title": "FoodNest",
-        "description": "A smart food discovery platform. Discover Food, Not Just Locations.",
-        "longDescription": "Smart filters, mood-based discovery (Chill Cafe, Date Night, etc.), and curated top picks built for rapid and relevant food exploration.",
-        "techStack": [
-            "Next.js",
-            "React",
-            "TailwindCSS"
-        ],
-        "category": [
-            "frontend"
-        ],
-        "liveUrl": "https://food-nest-nu.vercel.app/",
-        "githubUrl": "https://github.com/Rishabhworkspace/FoodNest",
-        "image": "/images/projects/foodnest.png",
-        "highlights": [
-            "Implemented intent-based discovery filtering",
-            "Sleek intuitive UI for rapid exploration of nearby eateries"
         ]
     }
 ]

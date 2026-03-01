@@ -1,9 +1,58 @@
 [
     {
+        "category": "Languages",
+        "items": [
+            {
+                "name": "JavaScript",
+                "proficiency": "expert",
+                "keywords": [
+                    "es6",
+                    "web",
+                    "async"
+                ]
+            },
+            {
+                "name": "Python",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "scripting",
+                    "data",
+                    "ai"
+                ]
+            },
+            {
+                "name": "Java",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "oop",
+                    "enterprise"
+                ]
+            },
+            {
+                "name": "C / C++",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "dsa",
+                    "systems",
+                    "performance"
+                ]
+            },
+            {
+                "name": "SQL",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "queries",
+                    "relational",
+                    "data"
+                ]
+            }
+        ]
+    },
+    {
         "category": "Frontend",
         "items": [
             {
-                "name": "React",
+                "name": "React.js",
                 "proficiency": "expert",
                 "keywords": [
                     "ui",
@@ -24,7 +73,7 @@
                 ]
             },
             {
-                "name": "TailwindCSS",
+                "name": "Tailwind CSS",
                 "proficiency": "advanced",
                 "keywords": [
                     "styling",
@@ -33,16 +82,16 @@
                 ]
             },
             {
-                "name": "JavaScript/TypeScript",
-                "proficiency": "expert",
+                "name": "Framer Motion",
+                "proficiency": "advanced",
                 "keywords": [
-                    "language",
-                    "types",
-                    "es6"
+                    "animations",
+                    "interactions",
+                    "ui polish"
                 ]
             },
             {
-                "name": "HTML/CSS",
+                "name": "HTML & CSS",
                 "proficiency": "expert",
                 "keywords": [
                     "semantic",
@@ -53,7 +102,7 @@
         ]
     },
     {
-        "category": "Backend",
+        "category": "Backend & DBs",
         "items": [
             {
                 "name": "Node.js",
@@ -65,48 +114,14 @@
                 ]
             },
             {
-                "name": "Express",
+                "name": "REST APIs",
                 "proficiency": "advanced",
                 "keywords": [
-                    "server",
-                    "routing",
-                    "middleware"
+                    "architecture",
+                    "endpoints",
+                    "integration"
                 ]
             },
-            {
-                "name": "Python",
-                "proficiency": "intermediate",
-                "keywords": [
-                    "language",
-                    "scripting",
-                    "ai",
-                    "data"
-                ]
-            },
-            {
-                "name": "Java",
-                "proficiency": "intermediate",
-                "keywords": [
-                    "language",
-                    "oop",
-                    "enterprise"
-                ]
-            },
-            {
-                "name": "C/C++",
-                "proficiency": "intermediate",
-                "keywords": [
-                    "systems",
-                    "performance",
-                    "foundations",
-                    "dsa"
-                ]
-            }
-        ]
-    },
-    {
-        "category": "Databases & Tools",
-        "items": [
             {
                 "name": "MongoDB",
                 "proficiency": "advanced",
@@ -117,7 +132,17 @@
                 ]
             },
             {
-                "name": "PostgreSQL / MySQL",
+                "name": "Supabase",
+                "proficiency": "advanced",
+                "keywords": [
+                    "baas",
+                    "auth",
+                    "postgres",
+                    "realtime"
+                ]
+            },
+            {
+                "name": "MySQL",
                 "proficiency": "intermediate",
                 "keywords": [
                     "sql",
@@ -126,22 +151,62 @@
                 ]
             },
             {
-                "name": "Supabase",
+                "name": "OAuth / Auth",
+                "proficiency": "intermediate",
+                "keywords": [
+                    "security",
+                    "authentication",
+                    "authorization"
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Tools & Concepts",
+        "items": [
+            {
+                "name": "Data Structures & Algorithms",
                 "proficiency": "advanced",
                 "keywords": [
-                    "baas",
-                    "auth",
-                    "realtime",
-                    "postgres"
+                    "problem solving",
+                    "logic",
+                    "efficiency"
                 ]
             },
             {
-                "name": "Git / GitHub",
+                "name": "Git & GitHub",
                 "proficiency": "advanced",
                 "keywords": [
                     "vcs",
                     "collaboration",
                     "ci/cd"
+                ]
+            },
+            {
+                "name": "Vercel",
+                "proficiency": "advanced",
+                "keywords": [
+                    "deployment",
+                    "hosting",
+                    "serverless"
+                ]
+            },
+            {
+                "name": "VS Code",
+                "proficiency": "expert",
+                "keywords": [
+                    "ide",
+                    "development",
+                    "environment"
+                ]
+            },
+            {
+                "name": "OOP & Full Stack",
+                "proficiency": "advanced",
+                "keywords": [
+                    "architecture",
+                    "design patterns",
+                    "end-to-end"
                 ]
             }
         ]

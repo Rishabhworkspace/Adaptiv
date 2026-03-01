@@ -2,6 +2,7 @@
 
 import { SkillCategory } from "@/types/portfolio";
 import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 export function Skills({ categories }: { categories: SkillCategory[] }) {
     return (
@@ -40,12 +41,16 @@ export function Skills({ categories }: { categories: SkillCategory[] }) {
                                         transition={{ duration: 0.5, delay: i * 0.05 }}
                                         className="relative group/item flex items-center"
                                     >
-                                        <span className={`text-lg lg:text-xl font-medium tracking-tight transition-colors duration-300 ${skill.proficiency === "expert" ? "text-primary" : "text-secondary"}`}>
+                                        <span className={`text-lg lg:text-xl font-medium tracking-tight transition-colors duration-300 ${skill.isHighlight ? "text-accent" : skill.proficiency === "expert" ? "text-primary" : "text-secondary"}`}>
                                             {skill.name}
                                         </span>
-                                        {skill.proficiency === "expert" && (
+                                        {skill.isHighlight ? (
+                                            <span className="ml-2 flex items-center justify-center text-accent/80 animate-pulse" title="Highly relevant to the target role">
+                                                <Sparkles size={14} />
+                                            </span>
+                                        ) : skill.proficiency === "expert" ? (
                                             <span className="ml-2 w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
-                                        )}
+                                        ) : null}
                                     </motion.li>
                                 ))}
                             </ul>

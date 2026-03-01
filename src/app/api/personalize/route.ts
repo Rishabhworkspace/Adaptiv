@@ -44,6 +44,7 @@ export async function POST(req: Request) {
             model: groq("meta-llama/llama-4-scout-17b-16e-instruct"),
             schema: ResponseSchema,
             prompt: prompt,
+            providerOptions: { groq: { strictJsonSchema: false } },
         });
 
         // We only returned differences from AI (descriptions). Map them back into the full data objects.

@@ -35,6 +35,7 @@ export interface SkillCategory {
         name: string;
         proficiency: "expert" | "advanced" | "intermediate";
         keywords: string[];
+        isHighlight?: boolean;
     }>;
 }
 
