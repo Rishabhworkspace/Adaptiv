@@ -2,179 +2,195 @@ import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Link } from '@react-pdf/renderer';
 import { PersonalizedData, RecruiterContext } from '@/components/portfolio/PortfolioProvider';
 
-// Create styles matching Reference Image 2
+// Styles matching Reference Image 2 — all ASCII-safe, no emoji
 const styles = StyleSheet.create({
     page: {
-        paddingTop: 35,
-        paddingBottom: 35,
-        paddingLeft: 40,
-        paddingRight: 40,
+        paddingTop: 30,
+        paddingBottom: 30,
+        paddingLeft: 35,
+        paddingRight: 35,
         fontFamily: 'Helvetica',
-        fontSize: 10,
+        fontSize: 9.5,
         color: '#333333',
-        lineHeight: 1.4,
+        lineHeight: 1.45,
     },
+
     // ---- HEADER ----
     header: {
-        marginBottom: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#e5e7eb',
-        paddingBottom: 15,
+        marginBottom: 12,
+        borderBottomWidth: 2,
+        borderBottomColor: '#2563EB',
+        paddingBottom: 12,
     },
     name: {
-        fontSize: 26,
+        fontSize: 22,
         fontFamily: 'Helvetica-Bold',
         color: '#000000',
-        marginBottom: 4,
+        marginBottom: 6,
+        letterSpacing: 0.5,
     },
     roleTitle: {
-        fontSize: 12,
+        fontSize: 10,
         fontFamily: 'Helvetica-Bold',
-        color: '#2563EB', // Blue accent
+        color: '#2563EB',
         marginBottom: 8,
+        letterSpacing: 0.5,
     },
     contactRow: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: 12,
-        fontSize: 9,
-        color: '#000000',
-        fontFamily: 'Helvetica-Bold',
+        gap: 6,
+        fontSize: 8.5,
+        color: '#333333',
     },
     contactItem: {
         flexDirection: 'row',
         alignItems: 'center',
     },
-    contactIcon: {
-        color: '#2563EB',
-        marginRight: 4,
+    contactSeparator: {
+        marginHorizontal: 4,
+        color: '#999999',
+        fontSize: 8,
     },
     contactLink: {
-        color: '#000000',
+        color: '#333333',
         textDecoration: 'none',
     },
 
     // ---- MAIN TWO-COLUMN LAYOUT ----
     mainLayout: {
         flexDirection: 'row',
-        gap: 20,
+        gap: 18,
     },
     leftColumn: {
-        flex: 0.65, // ~65% width
+        flex: 0.62,
     },
     rightColumn: {
-        flex: 0.35, // ~35% width
+        flex: 0.38,
+        paddingLeft: 14,
+        borderLeftWidth: 1,
+        borderLeftColor: '#e0e0e0',
     },
 
     // ---- SECTIONS ----
     sectionTitle: {
-        fontSize: 12,
+        fontSize: 11,
         fontFamily: 'Helvetica-Bold',
         color: '#000000',
         textTransform: 'uppercase',
-        borderBottomWidth: 1,
-        borderBottomColor: '#000000',
-        paddingBottom: 2,
+        borderBottomWidth: 1.5,
+        borderBottomColor: '#2563EB',
+        paddingBottom: 3,
         marginBottom: 8,
-        marginTop: 15,
+        marginTop: 14,
+        letterSpacing: 1,
     },
     firstSectionTitle: {
-        marginTop: 0, // Remove top margin for the first sections in columns
+        marginTop: 0,
     },
 
     // ---- TEXT ELEMENTS ----
     paragraph: {
-        fontSize: 10,
-        marginBottom: 10,
+        fontSize: 9.5,
+        marginBottom: 8,
         color: '#333333',
         textAlign: 'justify',
     },
 
     // ---- EXPERIENCE & PROJECTS ----
     itemBlock: {
-        marginBottom: 12,
-    },
-    itemHeaderRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'baseline',
-        marginBottom: 2,
+        marginBottom: 10,
     },
     itemTitle: {
-        fontSize: 11,
+        fontSize: 10.5,
         fontFamily: 'Helvetica-Bold',
         color: '#000000',
+        marginBottom: 1,
     },
     itemSubtitleRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 4,
+        alignItems: 'center',
+        marginBottom: 3,
     },
     itemCompany: {
-        fontSize: 10,
+        fontSize: 9.5,
         fontFamily: 'Helvetica-Bold',
         color: '#2563EB',
     },
     itemDetails: {
-        fontSize: 9,
+        fontSize: 8.5,
         color: '#666666',
+        fontFamily: 'Helvetica-Oblique',
     },
     itemDescription: {
-        fontSize: 10,
-        marginBottom: 4,
+        fontSize: 9.5,
+        marginBottom: 3,
+        color: '#444444',
     },
     bulletPointContainer: {
         flexDirection: 'row',
-        marginBottom: 3,
-        paddingLeft: 4,
+        marginBottom: 2,
+        paddingLeft: 6,
     },
     bullet: {
-        width: 10,
-        fontSize: 10,
+        width: 8,
+        fontSize: 9,
+        color: '#2563EB',
     },
     bulletText: {
         flex: 1,
-        fontSize: 10,
+        fontSize: 9,
     },
 
     // ---- SKILLS (Right Column) ----
     skillCategory: {
         fontFamily: 'Helvetica-Bold',
-        fontSize: 10,
-        marginBottom: 3,
+        fontSize: 9.5,
+        marginBottom: 2,
         color: '#000000',
     },
     skillListRow: {
-        marginBottom: 8,
+        marginBottom: 7,
     },
     skillItemsText: {
-        fontSize: 9,
-        color: '#333333',
+        fontSize: 8.5,
+        color: '#444444',
+        lineHeight: 1.5,
     },
 
     // ---- STRENGTHS / WHY ME (Right Column) ----
     strengthItem: {
-        marginBottom: 8,
+        marginBottom: 6,
     },
     strengthTitleRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 2,
+        marginBottom: 1,
     },
-    strengthIcon: {
+    strengthBullet: {
         color: '#2563EB',
-        fontSize: 12,
-        marginRight: 4,
+        fontSize: 9,
+        marginRight: 5,
+        width: 8,
     },
     strengthTitle: {
         fontFamily: 'Helvetica-Bold',
-        fontSize: 10,
+        fontSize: 9,
         color: '#000000',
     },
     strengthDesc: {
-        fontSize: 9,
+        fontSize: 8.5,
         color: '#555555',
-        paddingLeft: 14,
+        paddingLeft: 12,
+    },
+
+    // ---- PROJECTS (Right Column) ----
+    projectTech: {
+        fontSize: 8,
+        color: '#666666',
+        fontFamily: 'Helvetica-Oblique',
+        marginTop: 2,
     },
 });
 
@@ -184,8 +200,13 @@ interface ResumePDFProps {
 }
 
 export const ResumePDF = ({ data, context }: ResumePDFProps) => {
-    // Custom Role Title if context exists, otherwise default title
-    const displayRole = context ? `${context.role} | Software Engineering & Development` : data.profile.title;
+    const displayRole = context
+        ? `${context.role} | Software Engineering & Development`
+        : data.profile.title;
+
+    // Shorten URLs for display
+    const shortenUrl = (url: string) =>
+        url.replace('https://www.', '').replace('https://', '').replace(/\/$/, '');
 
     return (
         <Document>
@@ -198,38 +219,44 @@ export const ResumePDF = ({ data, context }: ResumePDFProps) => {
 
                     <View style={styles.contactRow}>
                         <View style={styles.contactItem}>
-                            <Text style={styles.contactIcon}>@</Text>
                             <Link src={`mailto:${data.profile.email}`} style={styles.contactLink}>
                                 {data.profile.email}
                             </Link>
                         </View>
+                        <Text style={styles.contactSeparator}>|</Text>
+
                         <View style={styles.contactItem}>
-                            <Text style={styles.contactIcon}>📍</Text>
-                            <Text>{data.profile.location}</Text>
+                            <Text style={styles.contactLink}>{data.profile.location}</Text>
                         </View>
-                        {data.profile.links.linkedin && (
-                            <View style={styles.contactItem}>
-                                <Text style={styles.contactIcon}>in</Text>
-                                <Link src={data.profile.links.linkedin} style={styles.contactLink}>
-                                    {data.profile.links.linkedin.replace('https://www.', '').replace('https://', '')}
-                                </Link>
-                            </View>
-                        )}
-                        {data.profile.links.github && (
-                            <View style={styles.contactItem}>
-                                <Text style={styles.contactIcon}>🐙</Text>
-                                <Link src={data.profile.links.github} style={styles.contactLink}>
-                                    {data.profile.links.github.replace('https://www.', '').replace('https://', '')}
-                                </Link>
-                            </View>
-                        )}
+
+                        {data.profile.links.linkedin ? (
+                            <>
+                                <Text style={styles.contactSeparator}>|</Text>
+                                <View style={styles.contactItem}>
+                                    <Link src={data.profile.links.linkedin} style={styles.contactLink}>
+                                        {shortenUrl(data.profile.links.linkedin)}
+                                    </Link>
+                                </View>
+                            </>
+                        ) : null}
+
+                        {data.profile.links.github ? (
+                            <>
+                                <Text style={styles.contactSeparator}>|</Text>
+                                <View style={styles.contactItem}>
+                                    <Link src={data.profile.links.github} style={styles.contactLink}>
+                                        {shortenUrl(data.profile.links.github)}
+                                    </Link>
+                                </View>
+                            </>
+                        ) : null}
                     </View>
                 </View>
 
                 {/* ---- TWO COLUMN LAYOUT ---- */}
                 <View style={styles.mainLayout}>
 
-                    {/* ===== LEFT COLUMN (~65%) ===== */}
+                    {/* ===== LEFT COLUMN ===== */}
                     <View style={styles.leftColumn}>
 
                         {/* SUMMARY */}
@@ -243,15 +270,14 @@ export const ResumePDF = ({ data, context }: ResumePDFProps) => {
                                 <Text style={styles.itemTitle}>{exp.role}</Text>
                                 <View style={styles.itemSubtitleRow}>
                                     <Text style={styles.itemCompany}>{exp.company}</Text>
-                                    <View style={{ flexDirection: 'row', gap: 10 }}>
-                                        <Text style={styles.itemDetails}>🗓 {exp.duration}</Text>
-                                        <Text style={styles.itemDetails}>📍 {exp.location || 'Remote'}</Text>
-                                    </View>
+                                    <Text style={styles.itemDetails}>
+                                        {exp.duration}{exp.location ? ` | ${exp.location}` : ''}
+                                    </Text>
                                 </View>
                                 <Text style={styles.itemDescription}>{exp.description}</Text>
                                 {exp.highlights.map((highlight, j) => (
                                     <View key={j} style={styles.bulletPointContainer}>
-                                        <Text style={styles.bullet}>•</Text>
+                                        <Text style={styles.bullet}>&#8226;</Text>
                                         <Text style={styles.bulletText}>{highlight}</Text>
                                     </View>
                                 ))}
@@ -260,23 +286,22 @@ export const ResumePDF = ({ data, context }: ResumePDFProps) => {
 
                         {/* EDUCATION */}
                         <Text style={styles.sectionTitle}>EDUCATION</Text>
-                        {data.education && data.education.map((edu, i) => (
+                        {data.education ? data.education.map((edu, i) => (
                             <View key={i} style={styles.itemBlock}>
                                 <Text style={styles.itemTitle}>{edu.degree}</Text>
                                 <View style={styles.itemSubtitleRow}>
                                     <Text style={styles.itemCompany}>{edu.institution}</Text>
-                                    <View style={{ flexDirection: 'row', gap: 10 }}>
-                                        <Text style={styles.itemDetails}>🗓 {edu.duration}</Text>
-                                        {edu.location && <Text style={styles.itemDetails}>📍 {edu.location}</Text>}
-                                    </View>
+                                    <Text style={styles.itemDetails}>
+                                        {edu.duration}{edu.location ? ` | ${edu.location}` : ''}
+                                    </Text>
                                 </View>
-                                {edu.gpa && <Text style={styles.itemDetails}>CGPA: {edu.gpa}</Text>}
+                                {edu.gpa ? <Text style={styles.itemDetails}>CGPA: {edu.gpa}</Text> : null}
                             </View>
-                        ))}
+                        )) : null}
 
                     </View>
 
-                    {/* ===== RIGHT COLUMN (~35%) ===== */}
+                    {/* ===== RIGHT COLUMN ===== */}
                     <View style={styles.rightColumn}>
 
                         {/* SKILLS */}
@@ -285,33 +310,23 @@ export const ResumePDF = ({ data, context }: ResumePDFProps) => {
                             <View key={i} style={styles.skillListRow}>
                                 <Text style={styles.skillCategory}>{category.category}</Text>
                                 <Text style={styles.skillItemsText}>
-                                    {category.items.map(item => item.name).join('  •  ')}
+                                    {category.items.map(item => item.name).join('  |  ')}
                                 </Text>
                             </View>
                         ))}
 
-                        {/* STRENGTHS / WHY CHOOSE ME (from AI Context) */}
-                        {context && data.whyMe && (
+                        {/* STRENGTHS / WHY CHOOSE ME */}
+                        {context && data.whyMe ? (
                             <>
                                 <Text style={styles.sectionTitle}>STRENGTHS</Text>
-                                {data.whyMe.points.map((point, i) => {
-                                    // Split the point into a bold title and description if possible (e.g. "Title: Description")
-                                    const parts = point.split(':');
-                                    const title = parts.length > 1 ? parts[0] : `Strength ${i + 1}`;
-                                    const desc = parts.length > 1 ? parts.slice(1).join(':').trim() : point;
-
-                                    return (
-                                        <View key={i} style={styles.strengthItem}>
-                                            <View style={styles.strengthTitleRow}>
-                                                <Text style={styles.strengthIcon}>★</Text>
-                                                <Text style={styles.strengthTitle}>{title}</Text>
-                                            </View>
-                                            <Text style={styles.strengthDesc}>{desc}</Text>
-                                        </View>
-                                    );
-                                })}
+                                {data.whyMe.points.map((point, i) => (
+                                    <View key={i} style={styles.bulletPointContainer}>
+                                        <Text style={styles.strengthBullet}>-</Text>
+                                        <Text style={{ ...styles.bulletText, fontSize: 8.5 }}>{point}</Text>
+                                    </View>
+                                ))}
                             </>
-                        )}
+                        ) : null}
 
                         {/* PROJECTS */}
                         <Text style={styles.sectionTitle}>PROJECTS</Text>
@@ -319,7 +334,7 @@ export const ResumePDF = ({ data, context }: ResumePDFProps) => {
                             <View key={i} style={styles.itemBlock}>
                                 <Text style={styles.itemTitle}>{proj.title}</Text>
                                 <Text style={styles.itemDescription}>{proj.description}</Text>
-                                <Text style={{ ...styles.skillItemsText, marginTop: 4, fontFamily: 'Helvetica-Oblique' }}>
+                                <Text style={styles.projectTech}>
                                     Tech: {proj.techStack.join(', ')}
                                 </Text>
                             </View>

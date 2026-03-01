@@ -178,7 +178,7 @@ export default function GeneratePage() {
                     </p>
                 </div>
 
-                {savedLinks.length > 0 && (
+                {savedLinks.length > 0 ? (
                     <div className="mt-12 animate-fade-in-up">
                         <div className="flex items-center justify-between mb-6">
                             <h2 className="text-2xl font-bold flex items-center gap-2">
@@ -242,7 +242,7 @@ export default function GeneratePage() {
                             ))}
                         </div>
                     </div>
-                )}
+                ) : null}
 
             </div>
         </div>

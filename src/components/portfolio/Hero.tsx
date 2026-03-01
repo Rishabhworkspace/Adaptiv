@@ -8,7 +8,7 @@ import { DownloadResumeButton } from "../resume/DownloadResumeButton";
 export function Hero({ profile }: { profile: Profile }) {
     return (
         <section id="about" className="relative pt-40 pb-20 flex flex-col items-start justify-center min-h-[90vh]">
-            <div className="max-w-4xl w-full mx-auto relative z-10">
+            <header className="max-w-4xl w-full mx-auto relative z-10">
                 <div className="flex flex-col gap-6 stagger-children">
                     <p className="font-mono text-accent text-sm md:text-base font-medium tracking-wider uppercase">
                         {profile.title}
@@ -24,13 +24,13 @@ export function Hero({ profile }: { profile: Profile }) {
                     </p>
 
                     <div className="flex flex-wrap gap-4 mt-8 items-center">
-                        <Link href="#projects">
+                        <Link href="#projects" aria-label="View selected work and projects">
                             <Button variant="primary" className="group h-12">
                                 Selected Work
                                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <Link href="#contact">
+                        <Link href="#contact" aria-label="Navigate to the contact section">
                             <Button variant="outline" className="h-12">
                                 Start a Conversation
                             </Button>
@@ -38,7 +38,7 @@ export function Hero({ profile }: { profile: Profile }) {
                         <DownloadResumeButton />
                     </div>
                 </div>
-            </div>
+            </header>
 
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block">
                 <ArrowDown size={24} className="text-secondary" />
