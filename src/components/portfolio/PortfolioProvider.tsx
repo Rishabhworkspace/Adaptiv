@@ -8,6 +8,7 @@ import profileData from "@/data/profile.json";
 import projectsData from "@/data/projects.json";
 import skillsData from "@/data/skills.json";
 import experienceData from "@/data/experience.json";
+import educationData from "@/data/education.json";
 
 export interface RecruiterContext {
     company: string;
@@ -19,6 +20,13 @@ export interface PersonalizedData {
     projects: Project[];
     skills: SkillCategory[];
     experience: Experience[];
+    education?: {
+        institution: string;
+        degree: string;
+        duration: string;
+        location?: string;
+        gpa?: string;
+    }[];
     whyMe?: {
         title: string;
         points: string[];
@@ -40,6 +48,7 @@ const defaultData: PersonalizedData = {
     projects: projectsData as Project[],
     skills: skillsData as SkillCategory[],
     experience: experienceData as Experience[],
+    education: educationData,
 };
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);

@@ -1,6 +1,7 @@
 import { GlassCard } from "../ui/GlassCard";
 import { Download, Sparkles } from "lucide-react";
 import { Button } from "../ui/Button";
+import { DownloadResumeButton } from "../resume/DownloadResumeButton";
 import { RecruiterContext } from "./PortfolioProvider";
 
 interface WhyMeProps {
@@ -45,10 +46,9 @@ export function WhyMe({ whyMe, context }: WhyMeProps) {
                     <p className="text-primary italic font-light">{whyMe.closingStatement}</p>
                 </div>
 
-                <Button variant="primary" className="gap-2 group">
-                    <Download size={18} className="group-hover:translate-y-[-2px] transition-transform" />
-                    Download "{context.role.split(' ')[0]}" Resume
-                </Button>
+                <div className="mt-8">
+                    <DownloadResumeButton />
+                </div>
             </GlassCard>
         </section>
     );

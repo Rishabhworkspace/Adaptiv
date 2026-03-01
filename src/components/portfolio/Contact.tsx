@@ -87,7 +87,8 @@ export function Contact({ email }: { email: string }) {
                                 name="name"
                                 required
                                 type="text"
-                                className="w-full bg-transparent border-b border-black/20 dark:border-white/20 pb-3 text-xl focus:outline-none focus:border-accent dark:focus:border-accent transition-colors peer placeholder-transparent"
+                                autoComplete="name"
+                                className="w-full bg-transparent border-b border-black/20 dark:border-white/20 pb-3 text-xl focus:outline-none focus-visible:border-accent dark:focus-visible:border-accent transition-colors peer placeholder-transparent"
                                 placeholder="Name"
                             />
                             <label htmlFor="name" className="absolute left-0 -top-6 text-sm font-mono tracking-widest uppercase text-secondary peer-focus:text-accent transition-colors peer-placeholder-shown:text-xl peer-placeholder-shown:top-0 peer-placeholder-shown:font-sans peer-placeholder-shown:normal-case peer-focus:-top-6 peer-focus:text-sm peer-focus:font-mono peer-focus:uppercase">
@@ -100,7 +101,9 @@ export function Contact({ email }: { email: string }) {
                                 name="email"
                                 type="email"
                                 required
-                                className="w-full bg-transparent border-b border-black/20 dark:border-white/20 pb-3 text-xl focus:outline-none focus:border-accent dark:focus:border-accent transition-colors peer placeholder-transparent"
+                                autoComplete="email"
+                                spellCheck={false}
+                                className="w-full bg-transparent border-b border-black/20 dark:border-white/20 pb-3 text-xl focus:outline-none focus-visible:border-accent dark:focus-visible:border-accent transition-colors peer placeholder-transparent"
                                 placeholder="Email"
                             />
                             <label htmlFor="email" className="absolute left-0 -top-6 text-sm font-mono tracking-widest uppercase text-secondary peer-focus:text-accent transition-colors peer-placeholder-shown:text-xl peer-placeholder-shown:top-0 peer-placeholder-shown:font-sans peer-placeholder-shown:normal-case peer-focus:-top-6 peer-focus:text-sm peer-focus:font-mono peer-focus:uppercase">
@@ -115,7 +118,7 @@ export function Contact({ email }: { email: string }) {
                             name="message"
                             required
                             rows={1}
-                            className="w-full bg-transparent border-b border-black/20 dark:border-white/20 pb-3 text-xl focus:outline-none focus:border-accent dark:focus:border-accent transition-colors resize-none peer placeholder-transparent min-h-[40px] overflow-hidden"
+                            className="w-full bg-transparent border-b border-black/20 dark:border-white/20 pb-3 text-xl focus:outline-none focus-visible:border-accent dark:focus-visible:border-accent transition-colors resize-none peer placeholder-transparent min-h-[40px] overflow-hidden"
                             placeholder="Message"
                             onInput={(e) => {
                                 const target = e.target as HTMLTextAreaElement;

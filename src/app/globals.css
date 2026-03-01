@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   :root {
     /* Light Theme (Paper-like) */
@@ -102,6 +98,7 @@ h6 {
   color: var(--text-primary);
   margin: 0;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 body,
@@ -262,4 +259,26 @@ a {
 .section-padding {
   padding-top: 8rem;
   padding-bottom: 8rem;
+}
+
+/* Interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+}
+
+/* Respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

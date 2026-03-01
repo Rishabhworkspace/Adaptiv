@@ -95,27 +95,31 @@ export default function GeneratePage() {
 
                 <div className="minimal-card flex flex-col gap-6">
                     <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold uppercase tracking-wider text-secondary">
+                        <label htmlFor="gen-company" className="text-sm font-bold uppercase tracking-wider text-secondary">
                             Target Company
                         </label>
                         <input
+                            id="gen-company"
                             type="text"
-                            placeholder="e.g. Google, Vercel, Stripe"
+                            placeholder="e.g. Google, Vercel, Stripe…"
                             value={company}
                             onChange={(e) => setCompany(e.target.value)}
+                            autoComplete="off"
                             className="minimal-input text-lg font-mono bg-bg-primary"
                         />
                     </div>
 
                     <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold uppercase tracking-wider text-secondary">
+                        <label htmlFor="gen-role" className="text-sm font-bold uppercase tracking-wider text-secondary">
                             Target Role
                         </label>
                         <input
+                            id="gen-role"
                             type="text"
-                            placeholder="e.g. Frontend Engineer, Product Designer"
+                            placeholder="e.g. Frontend Engineer, Product Designer…"
                             value={role}
                             onChange={(e) => setRole(e.target.value)}
+                            autoComplete="off"
                             className="minimal-input text-lg font-mono bg-bg-primary"
                         />
                     </div>
@@ -128,7 +132,7 @@ export default function GeneratePage() {
                         </label>
 
                         <div className="relative group">
-                            <div className="w-full p-4 bg-bg-primary border border-border-strong rounded-lg font-mono text-sm md:text-base break-all select-all transition-colors group-hover:border-accent shadow-inner">
+                            <div className="w-full p-4 bg-bg-primary border border-border-strong rounded-lg font-mono text-sm md:text-base break-all select-all transition-colors group-hover:border-accent shadow-inner" aria-live="polite" role="status">
                                 {generatedLink}
                             </div>
 
@@ -155,7 +159,7 @@ export default function GeneratePage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="minimal-button outline flex justify-center items-center gap-2"
-                                    title="Test Link in new tab"
+                                    aria-label="Open link in new tab"
                                 >
                                     <ExternalLink size={18} />
                                 </a>
@@ -209,10 +213,9 @@ export default function GeneratePage() {
                                         <button
                                             onClick={async () => {
                                                 await navigator.clipboard.writeText(link.url);
-                                                // Could add a toast here
                                             }}
                                             className="minimal-button primary flex-1 sm:flex-none flex justify-center items-center gap-2 py-2 px-3"
-                                            title="Copy Link"
+                                            aria-label={`Copy link for ${link.company}`}
                                         >
                                             <Copy size={16} />
                                             <span className="sm:hidden">Copy</span>
@@ -222,7 +225,7 @@ export default function GeneratePage() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="minimal-button outline flex-1 sm:flex-none flex justify-center items-center gap-2 py-2 px-3"
-                                            title="Open Link"
+                                            aria-label={`Open link for ${link.company}`}
                                         >
                                             <ExternalLink size={16} />
                                             <span className="sm:hidden">Open</span>
@@ -230,7 +233,7 @@ export default function GeneratePage() {
                                         <button
                                             onClick={() => handleRemoveLink(link.id)}
                                             className="p-2 rounded-lg border border-transparent text-secondary hover:text-red-400 hover:bg-red-400/10 transition-colors flex justify-center items-center"
-                                            title="Remove"
+                                            aria-label={`Remove link for ${link.company}`}
                                         >
                                             <Trash2 size={16} />
                                         </button>
