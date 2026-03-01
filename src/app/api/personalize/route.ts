@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
         const cacheKey = `${company.trim().toLowerCase()}-${role.trim().toLowerCase()}`;
         if (responseCache.has(cacheKey)) {
-            console.log(`[Cache Hit] Returning cached personalization for: ${cacheKey}`);
+            // Removed debug console.log
             return NextResponse.json(responseCache.get(cacheKey));
         }
 
