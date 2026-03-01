@@ -18,7 +18,7 @@ export const SkillCategorySchema = z.object({
         name: z.string(),
         proficiency: z.enum(["expert", "advanced", "intermediate"]),
         keywords: z.array(z.string()),
-        isHighlight: z.boolean().describe("Set to true if this specific skill is explicitly requested or highly relevant to the target role/company. Otherwise set to false.")
+        isHighlight: z.boolean().optional().transform(v => v ?? false).describe("Set to true if this specific skill is explicitly requested or highly relevant to the target role/company. Otherwise set to false.")
     }))
 }).describe("The categorized skills array rearranged and truncated to prioritize those heavily matching the role context. Set isHighlight to true for the most important matching skills.");
 

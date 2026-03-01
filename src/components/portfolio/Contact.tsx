@@ -5,18 +5,20 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export function Contact({ email }: { email: string }) {
-    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error" | "rateLimited">("idle");
     const formRef = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
         let timeout: NodeJS.Timeout;
-        if (status === "success") {
+        if (status === "success" || status === "rateLimited") {
             timeout = setTimeout(() => {
-                formRef.current?.reset();
-                if (formRef.current) {
-                    const messageArea = formRef.current.elements.namedItem("message") as HTMLTextAreaElement | null;
-                    if (messageArea) {
-                        messageArea.style.height = 'auto';
+                if (status === "success") {
+                    formRef.current?.reset();
+                    if (formRef.current) {
+                        const messageArea = formRef.current.elements.namedItem("message") as HTMLTextAreaElement | null;
+                        if (messageArea) {
+                            messageArea.style.height = 'auto';
+                        }
                     }
                 }
                 setStatus("idle");
@@ -32,13 +34,14 @@ export function Contact({ email }: { email: string }) {
         const formData = new FormData(e.currentTarget);
 
         try {
-            const res = await fetch("https://formspree.io/f/mbdaeodd", {
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 body: formData,
-                headers: { Accept: "application/json" },
             });
 
-            if (res.ok) {
+            if (res.status === 429) {
+                setStatus("rateLimited");
+            } else if (res.ok) {
                 setStatus("success");
             } else {
                 setStatus("error");
@@ -128,11 +131,11 @@ export function Contact({ email }: { email: string }) {
                     <div className="flex justify-center pt-8">
                         <button
                             type="submit"
-                            disabled={status === "submitting" || status === "success"}
+                            disabled={status === "submitting" || status === "success" || status === "rateLimited"}
                             className="group flex items-center justify-center gap-4 text-xl font-medium hover:text-accent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <span className="relative">
-                                {status === "submitting" ? "Sending..." : status === "success" ? "Message Sent ✓" : status === "error" ? "Failed — Try Again" : "Send Message"}
+                                {status === "submitting" ? "Sending..." : status === "success" ? "Message Sent ✓" : status === "rateLimited" ? "Too Many Attempts. Wait 1m." : status === "error" ? "Failed — Try Again" : "Send Message"}
                                 <span className="absolute bottom-0 left-0 w-full h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                             </span>
                             <Send size={20} className="transition-transform group-hover:translate-x-2 group-hover:-translate-y-2 opacity-70 group-hover:opacity-100 group-hover:text-accent" />

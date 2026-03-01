@@ -2,6 +2,7 @@
 
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { Hero } from "@/components/portfolio/Hero";
 import { About } from "@/components/portfolio/About";
 import { Projects } from "@/components/portfolio/Projects";
@@ -46,6 +47,7 @@ export default function PortfolioPage() {
                 </div>
             </main>
             <Footer />
+            <ScrollToTop />
         </>
     );
 }

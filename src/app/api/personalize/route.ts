@@ -56,10 +56,19 @@ export async function POST(req: Request) {
             };
         });
 
+        // Sanitize skills: default isHighlight to false if AI omitted it
+        const sanitizedSkills = object.skills.map((cat) => ({
+            ...cat,
+            items: cat.items.map((item) => ({
+                ...item,
+                isHighlight: item.isHighlight ?? false,
+            })),
+        }));
+
         return NextResponse.json({
             profile: object.profile,
             projects: mergedProjects,
-            skills: object.skills,
+            skills: sanitizedSkills,
             whyMe: object.whyMe,
         });
     } catch (error) {
