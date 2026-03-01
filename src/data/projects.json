@@ -65,24 +65,24 @@
         ]
     },
     {
-        "id": "levelup",
-        "title": "LevelUp-",
-        "description": "Gamified platform for skill development and personal growth.",
-        "longDescription": "A platform focused on motivation through gamification. Tracks progress and rewards users for hitting personal milestones.",
+        "id": "portfolio",
+        "title": "Developer Portfolio",
+        "description": "A clean, high-contrast design experiment in Neo-Brutalism.",
+        "longDescription": "A personal portfolio built to break away from safe conventions. Features a custom brutalist design system, interactive arcade games, and dynamic animations.",
         "techStack": [
             "React",
-            "Express",
-            "MongoDB"
+            "Next.js",
+            "TailwindCSS"
         ],
         "category": [
-            "fullstack"
+            "frontend"
         ],
-        "liveUrl": "https://level-up-eight-mauve.vercel.app/",
-        "githubUrl": "https://github.com/Rishabhworkspace/LevelUp-",
-        "image": "/images/projects/levelup.png",
+        "liveUrl": "https://rishabhtripathi2903.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/Portfolio",
+        "image": "/images/projects/portfolio.png",
         "highlights": [
-            "Implemented gamification logic (points, badges, leaderboards)",
-            "Designed a dashboard for comprehensive progress tracking"
+            "Designed a custom Neo-Brutalist design system with high contrast and bold typography",
+            "Integrated interactive playground elements including classic arcade games"
         ]
     },
     {

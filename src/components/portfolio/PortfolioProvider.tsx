@@ -53,7 +53,27 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
         setIsGenerating(true);
         setContext({ company, role });
 
+        const cacheKey = `portfolio-cache-${company.trim().toLowerCase()}-${role.trim().toLowerCase()}`;
+
         try {
+            // 1. Check client-side cache first (sessionStorage)
+            if (typeof window !== "undefined") {
+                const cached = sessionStorage.getItem(cacheKey);
+                if (cached) {
+                    const result = JSON.parse(cached);
+                    setData({
+                        profile: { ...defaultData.profile, ...result.profile },
+                        projects: result.projects || defaultData.projects,
+                        skills: result.skills || defaultData.skills,
+                        experience: defaultData.experience,
+                        whyMe: result.whyMe,
+                    });
+                    setIsGenerating(false);
+                    return;
+                }
+            }
+
+            // 2. Fetch from API
             const response = await fetch("/api/personalize", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -63,6 +83,11 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
             if (!response.ok) throw new Error("Failed to personalize");
 
             const result = await response.json();
+
+            // 3. Save to client-side cache
+            if (typeof window !== "undefined") {
+                sessionStorage.setItem(cacheKey, JSON.stringify(result));
+            }
 
             setData({
                 profile: { ...defaultData.profile, ...result.profile },

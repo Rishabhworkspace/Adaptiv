@@ -19,6 +19,9 @@ const ResponseSchema = z.object({
     whyMe: WhyMeSchema,
 });
 
+// Simple in-memory cache to save AI costs on warm lambdas
+const responseCache = new Map<string, any>();
+
 export async function POST(req: Request) {
     try {
         const { company, role } = await req.json();
@@ -28,6 +31,12 @@ export async function POST(req: Request) {
                 { error: "Missing company or role parameters" },
                 { status: 400 }
             );
+        }
+
+        const cacheKey = `${company.trim().toLowerCase()}-${role.trim().toLowerCase()}`;
+        if (responseCache.has(cacheKey)) {
+            console.log(`[Cache Hit] Returning cached personalization for: ${cacheKey}`);
+            return NextResponse.json(responseCache.get(cacheKey));
         }
 
         const baseData = JSON.stringify({
@@ -65,12 +74,16 @@ export async function POST(req: Request) {
             })),
         }));
 
-        return NextResponse.json({
+        const responseData = {
             profile: object.profile,
             projects: mergedProjects,
             skills: sanitizedSkills,
             whyMe: object.whyMe,
-        });
+        };
+
+        responseCache.set(cacheKey, responseData);
+
+        return NextResponse.json(responseData);
     } catch (error) {
         console.error("[AI Personalization Error]", error);
         return NextResponse.json(

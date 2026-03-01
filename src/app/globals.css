@@ -65,6 +65,33 @@ body {
   color: var(--bg-primary);
 }
 
+/* Custom Creative Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-left: 1px dashed var(--border-strong);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border: 3px solid var(--bg-primary);
+  border-radius: 0;
+  /* Blocky, raw look */
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--bg-primary);
+}
+
 h1,
 h2,
 h3,
