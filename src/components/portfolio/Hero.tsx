@@ -3,6 +3,8 @@ import { Button } from "../ui/Button";
 import Link from "next/link";
 import { ArrowRight, ArrowDown } from "lucide-react";
 
+import { DownloadResumeButton } from "../resume/DownloadResumeButton";
+
 export function Hero({ profile }: { profile: Profile }) {
     return (
         <section id="about" className="relative pt-40 pb-20 flex flex-col items-start justify-center min-h-[90vh]">
@@ -21,18 +23,19 @@ export function Hero({ profile }: { profile: Profile }) {
                         {profile.bio}
                     </p>
 
-                    <div className="flex flex-wrap gap-4 mt-8">
+                    <div className="flex flex-wrap gap-4 mt-8 items-center">
                         <Link href="#projects">
-                            <Button variant="primary" className="group">
+                            <Button variant="primary" className="group h-12">
                                 Selected Work
                                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
                         <Link href="#contact">
-                            <Button variant="outline">
+                            <Button variant="outline" className="h-12">
                                 Start a Conversation
                             </Button>
                         </Link>
+                        <DownloadResumeButton />
                     </div>
                 </div>
             </div>
