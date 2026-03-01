@@ -36,29 +36,29 @@ export default function Home() {
 
       <div className="max-w-xl w-full mx-auto space-y-12 relative z-10">
         <header className="text-center animate-fade-in-up">
-          <p className="text-[#00cec9] font-mono mb-4 text-sm tracking-widest">
+          <p className="text-accent font-mono mb-4 text-sm tracking-widest">
             /// SYSTEM_START
           </p>
           <h1 className="text-5xl md:text-6xl font-bold mb-4 font-sans tracking-tight">
-            Adaptive <span className="text-gradient hover:drop-shadow-[0_0_15px_rgba(108,92,231,0.5)] transition-all">Portfolio</span>
+            Adaptive <span className="text-accent hover:drop-shadow-[0_0_15px_rgba(79,70,229,0.5)] transition-all">Portfolio</span>
           </h1>
-          <p className="text-lg text-[#8a8a9a] max-w-md mx-auto font-sans leading-relaxed">
+          <p className="text-lg text-secondary max-w-md mx-auto font-sans leading-relaxed">
             A portfolio that actively rewrites itself to prove why I'm the perfect fit for your role.
           </p>
         </header>
 
         <div className="stagger-children space-y-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
           <GlassCard elevated className="p-8 text-center space-y-8 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#6c5ce7] to-transparent opacity-50"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
 
             <div className="space-y-2">
-              <h2 className="text-2xl font-semibold font-sans text-white">Who are you?</h2>
-              <p className="text-[#8a8a9a] text-sm">Provide your context to see the magic.</p>
+              <h2 className="text-2xl font-semibold font-sans text-primary">Who are you?</h2>
+              <p className="text-secondary text-sm">Provide your context to see the magic.</p>
             </div>
 
-            <div className="space-y-4 max-w-sm mx-auto">
-              <div className="text-left space-y-1">
-                <label className="text-xs font-mono text-[#00cec9] ml-1">COMPANY</label>
+            <div className="space-y-6 max-w-sm mx-auto w-full">
+              <div className="text-left space-y-2">
+                <label className="text-xs font-mono text-accent ml-1 uppercase font-semibold tracking-wider">Company</label>
                 <Input
                   placeholder="e.g. Google, Stripe, Startup"
                   value={company}
@@ -66,8 +66,8 @@ export default function Home() {
                   disabled={isGenerating}
                 />
               </div>
-              <div className="text-left space-y-1">
-                <label className="text-xs font-mono text-[#00cec9] ml-1">ROLE</label>
+              <div className="text-left space-y-2">
+                <label className="text-xs font-mono text-accent ml-1 uppercase font-semibold tracking-wider">Role</label>
                 <Input
                   placeholder="e.g. Frontend Engineer, SDE2"
                   value={role}

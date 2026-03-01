@@ -1,38 +1,44 @@
 import { Profile } from "@/types/portfolio";
 import { Button } from "../ui/Button";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 
 export function Hero({ profile }: { profile: Profile }) {
     return (
-        <section id="about" className="pt-32 pb-20 flex flex-col items-start justify-center min-h-[80vh] animate-fade-in-up">
-            <p className="text-[#00cec9] font-mono mb-4 text-sm md:text-base">
-        /// SYSTEM_OPTIMIZED
-            </p>
+        <section id="about" className="relative pt-40 pb-20 flex flex-col items-start justify-center min-h-[90vh]">
+            <div className="max-w-4xl w-full mx-auto relative z-10">
+                <div className="flex flex-col gap-6 stagger-children">
+                    <p className="font-mono text-accent text-sm md:text-base font-medium tracking-wider uppercase">
+                        {profile.title}
+                    </p>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-                I am <span className="text-gradient">Rishabh.</span>
-            </h1>
+                    <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[1.05] tracking-tighter">
+                        Hi, I&apos;m <br />
+                        <span className="text-accent">{(profile?.name ?? 'Friend').split(' ')[0]}</span>.
+                    </h1>
 
-            <h2 className="text-2xl md:text-3xl text-[#8a8a9a] mb-8 font-medium">
-                {profile.title}
-            </h2>
+                    <p className="text-xl md:text-2xl text-secondary max-w-2xl mt-4 leading-relaxed font-light">
+                        {profile.bio}
+                    </p>
 
-            <p className="text-lg text-[#8a8a9a] max-w-2xl mb-12 leading-relaxed">
-                {profile.bio}
-            </p>
+                    <div className="flex flex-wrap gap-4 mt-8">
+                        <Link href="#projects">
+                            <Button variant="primary" className="group">
+                                Selected Work
+                                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
+                        <Link href="#contact">
+                            <Button variant="outline">
+                                Start a Conversation
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </div>
 
-            <div className="flex gap-4">
-                <Link href="#projects">
-                    <Button variant="primary" className="gap-2">
-                        View Database <ArrowRight size={18} />
-                    </Button>
-                </Link>
-                <Link href="#contact">
-                    <Button variant="outline">
-                        Initialize Contact
-                    </Button>
-                </Link>
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block">
+                <ArrowDown size={24} className="text-secondary" />
             </div>
         </section>
     );

@@ -12,7 +12,7 @@ export const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
         return (
             <Component
                 ref={ref}
-                className={`glass-card ${elevated ? "elevated" : ""} ${className}`}
+                className={`minimal-card ${className}`}
                 {...props}
             >
                 {children}

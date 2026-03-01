@@ -13,7 +13,9 @@
             "frontend",
             "education"
         ],
-        "image": "/images/projects/algoforge.jpg",
+        "liveUrl": "https://algo-forge-2-0.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/AlgoForge",
+        "image": "/images/projects/algoforge.png",
         "highlights": [
             "Visualized multiple complex sorting and pathfinding algorithms",
             "Interactive controls for playing, pausing, and stepping through execution"
@@ -33,7 +35,9 @@
             "fullstack",
             "ai"
         ],
-        "image": "/images/projects/vitravelbuddy.jpg",
+        "liveUrl": "https://vitravelbuddy-nine.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/vitravelbuddy",
+        "image": "/images/projects/vitravelbuddy.png",
         "highlights": [
             "Generated personalized itineraries based on user preferences",
             "Integrated AI for smart routing and destination suggestions"
@@ -52,7 +56,9 @@
         "category": [
             "fullstack"
         ],
-        "image": "/images/projects/levelup.jpg",
+        "liveUrl": "https://level-up-eight-mauve.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/LevelUp-",
+        "image": "/images/projects/levelup.png",
         "highlights": [
             "Implemented gamification logic (points, badges, leaderboards)",
             "Designed a dashboard for comprehensive progress tracking"
@@ -72,7 +78,9 @@
             "fullstack",
             "health"
         ],
-        "image": "/images/projects/mindcare.jpg",
+        "liveUrl": "https://sih-six-rouge.vercel.app/",
+        "githubUrl": "https://github.com/Rishabhworkspace/SIH",
+        "image": "/images/projects/mindcare.png",
         "highlights": [
             "Developed during the intensive Smart India Hackathon",
             "Designed specifically for student-centric mental health support"
@@ -93,7 +101,7 @@
         ],
         "liveUrl": "https://food-nest-nu.vercel.app/",
         "githubUrl": "https://github.com/Rishabhworkspace/FoodNest",
-        "image": "/images/projects/foodnest.jpg",
+        "image": "/images/projects/foodnest.png",
         "highlights": [
             "Implemented intent-based discovery filtering",
             "Sleek intuitive UI for rapid exploration of nearby eateries"

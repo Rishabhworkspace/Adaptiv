@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
 import { Projects } from "@/components/portfolio/Projects";
 import { Skills } from "@/components/portfolio/Skills";
 import { Experience } from "@/components/portfolio/Experience";
@@ -36,6 +37,7 @@ export default function PortfolioPage() {
 
                 <div className={isGenerating ? "opacity-50 blur-sm pointer-events-none transition-all duration-1000" : "transition-all duration-1000"}>
                     <Hero profile={data.profile} />
+                    <About />
                     <Projects projects={data.projects} />
                     <Skills categories={data.skills} />
                     {data.whyMe && <WhyMe whyMe={data.whyMe} context={context} />}

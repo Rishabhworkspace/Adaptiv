@@ -1,33 +1,56 @@
+"use client";
+
 import { SkillCategory } from "@/types/portfolio";
-import { GlassCard } from "../ui/GlassCard";
+import { motion } from "framer-motion";
 
 export function Skills({ categories }: { categories: SkillCategory[] }) {
     return (
-        <section id="skills" className="py-20 scroll-mt-20">
-            <div className="flex items-center gap-4 mb-12">
-                <h2 className="text-3xl font-bold">Tech Stack</h2>
-                <div className="h-px bg-white/10 flex-grow"></div>
+        <section id="skills" className="py-32 scroll-mt-20">
+            <div className="flex items-center gap-4 mb-24">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Expertise</h2>
+                <div className="h-px bg-black/10 dark:bg-white/10 flex-grow mt-2"></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col gap-16 lg:gap-24">
                 {categories.map((category, idx) => (
-                    <GlassCard key={idx} className="animate-fade-in-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-                        <h3 className="text-xl font-semibold mb-6 text-white pb-4 border-b border-white/10">
-                            {category.category}
-                        </h3>
-                        <div className="flex flex-wrap gap-3">
-                            {category.items.map((skill, i) => (
-                                <div
-                                    key={i}
-                                    className="px-3 py-1.5 rounded-md bg-white/5 border border-white/5 text-sm hover:border-[#6c5ce7]/50 hover:bg-[#6c5ce7]/10 transition-colors"
-                                >
-                                    <span className={skill.proficiency === "expert" ? "text-white font-medium" : "text-[#b4b4c0]"}>
-                                        {skill.name}
-                                    </span>
-                                </div>
-                            ))}
+                    <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-10%" }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="flex flex-col lg:flex-row gap-8 lg:gap-20 items-start group"
+                    >
+                        {/* Category Title */}
+                        <div className="w-full lg:w-1/3 shrink-0">
+                            <h3 className="text-2xl lg:text-3xl font-light text-secondary group-hover:text-primary transition-colors duration-500">
+                                {category.category}
+                            </h3>
                         </div>
-                    </GlassCard>
+
+                        {/* Skills List */}
+                        <div className="w-full lg:w-2/3">
+                            <ul className="flex flex-wrap gap-x-8 gap-y-4">
+                                {category.items.map((skill, i) => (
+                                    <motion.li
+                                        key={i}
+                                        initial={{ opacity: 0 }}
+                                        whileInView={{ opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: i * 0.05 }}
+                                        className="relative group/item flex items-center"
+                                    >
+                                        <span className={`text-lg lg:text-xl font-medium tracking-tight transition-colors duration-300 ${skill.proficiency === "expert" ? "text-primary" : "text-secondary"}`}>
+                                            {skill.name}
+                                        </span>
+                                        {skill.proficiency === "expert" && (
+                                            <span className="ml-2 w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300" />
+                                        )}
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

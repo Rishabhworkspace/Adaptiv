@@ -11,7 +11,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <button
                 ref={ref}
-                className={`glass-button ${variant} ${className}`}
+                className={`minimal-button ${variant} ${className}`}
                 {...props}
             >
                 {children}
