@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -19,19 +19,19 @@ import { GlassCard } from "@/components/ui/GlassCard";
 export function PortfolioClient() {
     const { data, isGenerating, context, personalize } = usePortfolio();
     const searchParams = useSearchParams();
+    const hasPersonalized = useRef<string | null>(null);
 
     useEffect(() => {
         const company = searchParams.get("company");
         const role = searchParams.get("role");
+        const key = company && role ? `${company}-${role}` : null;
 
-        // Only trigger personalization if it hasn't been done yet for this specific context
-        // and we are not currently generating to prevent infinite loops.
-        if (company && role && !isGenerating) {
-            if (context?.company !== company || context?.role !== role) {
-                personalize(company, role);
-            }
+        // Only trigger once per unique company+role pair
+        if (key && hasPersonalized.current !== key) {
+            hasPersonalized.current = key;
+            personalize(company!, role!);
         }
-    }, [searchParams, personalize, context, isGenerating]);
+    }, [searchParams, personalize]);
 
     return (
         <>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Copy, CheckCircle2, Link as LinkIcon, ExternalLink, Clock, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -49,7 +49,7 @@ export default function GeneratePage() {
         setCopied(false);
     }, [company, role]);
 
-    const handleCopy = async () => {
+    const handleCopy = useCallback(async () => {
         if (!generatedLink) return;
         try {
             await navigator.clipboard.writeText(generatedLink);
@@ -64,22 +64,26 @@ export default function GeneratePage() {
                     createdAt: new Date().toISOString()
                 };
 
-                const updatedLinks = [newLink, ...savedLinks.filter(l => l.url !== generatedLink)].slice(0, 10);
-                setSavedLinks(updatedLinks);
-                localStorage.setItem("portfolio_saved_links", JSON.stringify(updatedLinks));
+                setSavedLinks(prev => {
+                    const updatedLinks = [newLink, ...prev.filter(l => l.url !== generatedLink)].slice(0, 10);
+                    localStorage.setItem("portfolio_saved_links", JSON.stringify(updatedLinks));
+                    return updatedLinks;
+                });
             }
 
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
             console.error("Failed to copy text: ", err);
         }
-    };
+    }, [generatedLink, company, role]);
 
-    const handleRemoveLink = (id: string) => {
-        const updatedLinks = savedLinks.filter(l => l.id !== id);
-        setSavedLinks(updatedLinks);
-        localStorage.setItem("portfolio_saved_links", JSON.stringify(updatedLinks));
-    };
+    const handleRemoveLink = useCallback((id: string) => {
+        setSavedLinks(prev => {
+            const updatedLinks = prev.filter(l => l.id !== id);
+            localStorage.setItem("portfolio_saved_links", JSON.stringify(updatedLinks));
+            return updatedLinks;
+        });
+    }, []);
 
     return (
         <div className="min-h-screen pt-32 pb-20 section-padding">

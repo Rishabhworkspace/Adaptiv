@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useCallback } from "react";
 import { Profile, Project, SkillCategory, Experience } from "@/types/portfolio";
 
 // Base data imports (fallback)
@@ -49,7 +49,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
     const [data, setData] = useState<PersonalizedData>(defaultData);
     const [isGenerating, setIsGenerating] = useState(false);
 
-    const personalize = async (company: string, role: string) => {
+    const personalize = useCallback(async (company: string, role: string) => {
         setIsGenerating(true);
         setContext({ company, role });
 
@@ -93,23 +93,22 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
                 profile: { ...defaultData.profile, ...result.profile },
                 projects: result.projects || defaultData.projects,
                 skills: result.skills || defaultData.skills,
-                experience: defaultData.experience, // We won't rewrite this for now
+                experience: defaultData.experience,
                 whyMe: result.whyMe,
             });
 
         } catch (error) {
             console.error("Personalization failed:", error);
-            // Fallback to default
             setData(defaultData);
         } finally {
             setIsGenerating(false);
         }
-    };
+    }, []);
 
-    const reset = () => {
+    const reset = useCallback(() => {
         setContext(null);
         setData(defaultData);
-    };
+    }, []);
 
     return (
         <PortfolioContext.Provider value={{ context, setContext, data, isGenerating, personalize, reset }}>

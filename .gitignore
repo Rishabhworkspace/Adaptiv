@@ -46,6 +46,8 @@ next-env.d.ts
 _agents/
 _agent/
 .gemini/
+.claude/
+.trae/
 
 # Misc
 required/
