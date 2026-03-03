@@ -1,3 +1,4 @@
+##BHANG BHOSDA##
 # Adaptive Portfolio
 
 An AI-powered, meticulously crafted portfolio application designed to adapt its content dynamically to different recruiters and companies. Built to showcase a blend of modern design aesthetics, bleeding-edge web technologies, and artificial intelligence.
