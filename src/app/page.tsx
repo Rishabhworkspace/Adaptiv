@@ -13,7 +13,7 @@ const heroTextVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: [0.0, 0, 0.2, 1] },
+    transition: { delay: i * 0.15, duration: 0.6, ease: [0.0, 0, 0.2, 1] as const },
   }),
 };
 
@@ -22,7 +22,7 @@ const sectionReveal = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
+    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const },
   },
 };
 
@@ -39,7 +39,7 @@ const staggerChild = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.35, ease: [0.0, 0, 0.2, 1] },
+    transition: { duration: 0.35, ease: [0.0, 0, 0.2, 1] as const },
   },
 };
 
@@ -47,7 +47,7 @@ const staggerChild = {
 
 const stats = [
   { label: "Templates", value: "50+", icon: <Palette size={20} /> },
-  { label: "Layout Styles", value: "4", icon: <Layers size={20} /> },
+  { label: "Layout Styles", value: "10", icon: <Layers size={20} /> },
   { label: "Categories", value: "10", icon: <Sparkles size={20} /> },
   { label: "Free Forever", value: "100%", icon: <Zap size={20} /> },
 ];

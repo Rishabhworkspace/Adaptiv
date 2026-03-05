@@ -5,6 +5,12 @@ import { MinimalLayout } from "./minimal/MinimalLayout";
 import { CreativeLayout } from "./creative/CreativeLayout";
 import { CorporateLayout } from "./corporate/CorporateLayout";
 import { TerminalLayout } from "./terminal/TerminalLayout";
+import { SplitHeroLayout } from "./splitHero/SplitHeroLayout";
+import { CardGridLayout } from "./cardGrid/CardGridLayout";
+import { MagazineLayout } from "./magazine/MagazineLayout";
+import { SidebarLayout } from "./sidebar/SidebarLayout";
+import { TimelineLayout } from "./timeline/TimelineLayout";
+import { GlassDarkLayout } from "./glassDark/GlassDarkLayout";
 
 export interface PortfolioData {
     profile: {
@@ -51,6 +57,12 @@ export function PortfolioRenderer({ template, inputs }: PortfolioRendererProps) 
         creative: CreativeLayout,
         corporate: CorporateLayout,
         terminal: TerminalLayout,
+        splitHero: SplitHeroLayout,
+        cardGrid: CardGridLayout,
+        magazine: MagazineLayout,
+        sidebar: SidebarLayout,
+        timeline: TimelineLayout,
+        glassDark: GlassDarkLayout,
     };
 
     const Layout = layoutMap[template.layoutType];

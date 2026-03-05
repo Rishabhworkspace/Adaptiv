@@ -3,14 +3,20 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Layers, Palette, Monitor, Terminal, Sparkles } from "lucide-react";
-import { templates, templateCategories, type TemplateCategory, type LayoutType } from "@/data/templates";
+import { ArrowRight, Layers, Palette, Monitor, Terminal, Sparkles, SplitSquareHorizontal, LayoutGrid, BookOpen, PanelLeft, Clock, GlassWater } from "lucide-react";
+import { templates, templateCategories, layoutTypes, type TemplateCategory, type LayoutType } from "@/data/templates";
 
 const layoutIcons: Record<LayoutType, React.ReactNode> = {
     minimal: <Layers size={14} />,
     creative: <Sparkles size={14} />,
     corporate: <Monitor size={14} />,
     terminal: <Terminal size={14} />,
+    splitHero: <SplitSquareHorizontal size={14} />,
+    cardGrid: <LayoutGrid size={14} />,
+    magazine: <BookOpen size={14} />,
+    sidebar: <PanelLeft size={14} />,
+    timeline: <Clock size={14} />,
+    glassDark: <GlassWater size={14} />,
 };
 
 export default function TemplatesPage() {
@@ -74,13 +80,13 @@ export default function TemplatesPage() {
                                 active={selectedLayout === "All"}
                                 onClick={() => setSelectedLayout("All")}
                             />
-                            {(["minimal", "creative", "corporate", "terminal"] as LayoutType[]).map((layout) => (
+                            {layoutTypes.map(({ id, name }) => (
                                 <FilterPill
-                                    key={layout}
-                                    label={layout.charAt(0).toUpperCase() + layout.slice(1)}
-                                    active={selectedLayout === layout}
-                                    onClick={() => setSelectedLayout(layout)}
-                                    icon={layoutIcons[layout]}
+                                    key={id}
+                                    label={name}
+                                    active={selectedLayout === id}
+                                    onClick={() => setSelectedLayout(id)}
+                                    icon={layoutIcons[id]}
                                 />
                             ))}
                         </div>
