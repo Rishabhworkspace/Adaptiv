@@ -1,45 +1,45 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring, type Variants } from "framer-motion";
 import { ArrowRight, Palette, Sparkles, Globe, Zap, Layers, Terminal, Monitor, ChevronDown } from "lucide-react";
 import { templates, templateCategories } from "@/data/templates";
 import { useRef, useEffect, useState } from "react";
 
 /* ─────────── Animation Variants (outside component per framer-motion skill) ─────────── */
 
-const heroTextVariants = {
+const heroTextVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: [0.0, 0, 0.2, 1] as const },
+    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
   }),
 };
 
-const sectionReveal = {
+const sectionReveal: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const },
+    transition: { duration: 0.5, ease: "easeInOut" },
   },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: {},
   visible: {
     transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 };
 
-const staggerChild = {
+const staggerChild: Variants = {
   hidden: { opacity: 0, y: 15, scale: 0.98 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.35, ease: [0.0, 0, 0.2, 1] as const },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
