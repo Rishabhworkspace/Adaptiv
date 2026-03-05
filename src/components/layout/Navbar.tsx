@@ -31,15 +31,13 @@ export function Navbar() {
             <div className="w-full max-w-5xl bg-white/70 dark:bg-[#0A0A0A]/70 backdrop-blur-xl border border-black/5 dark:border-white/10 px-6 py-3 rounded-full flex items-center justify-between shadow-sm transition-colors duration-300">
                 <Link href="/" className="text-lg font-bold tracking-tight text-primary">
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-                        ríshabh<span className="text-accent">.</span>
+                        adaptiv<span className="text-accent">.</span>
                     </motion.div>
                 </Link>
 
                 <div className="hidden md:flex gap-4 items-center font-medium">
-                    <NavLink href="#about">About</NavLink>
-                    <NavLink href="#projects">Work</NavLink>
-                    <NavLink href="#skills">Expertise</NavLink>
-                    <NavLink href="#experience">Journey</NavLink>
+                    <NavLink href="#how-it-works">How It Works</NavLink>
+                    <NavLink href="/templates">Templates</NavLink>
                 </div>
 
                 <div className="flex gap-4 items-center">

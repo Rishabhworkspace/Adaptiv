@@ -20,17 +20,17 @@ const fontMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://rishabhtripathi.dev"),
   title: {
-    default: "Rishabh Tripathi — Adaptive Portfolio",
-    template: "%s | Rishabh Tripathi",
+    default: "Adaptiv — Build Your Portfolio in Minutes",
+    template: "%s | Adaptiv",
   },
-  description: "An AI-powered portfolio that dynamically adapts its content to match your company and role. Experience personalized project descriptions, tailored skills, and context-aware resumes.",
-  keywords: ["portfolio", "developer", "frontend engineer", "AI portfolio", "adaptive portfolio", "Rishabh Tripathi"],
-  authors: [{ name: "Rishabh Tripathi" }],
-  creator: "Rishabh Tripathi",
+  description: "Choose from 50 stunning portfolio templates, fill in your details, and get a unique shareable link. No coding required.",
+  keywords: ["portfolio generator", "developer portfolio", "portfolio builder", "free portfolio", "Adaptiv"],
+  authors: [{ name: "Adaptiv" }],
+  creator: "Adaptiv",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Rishabh Tripathi — Adaptive Portfolio",
+    siteName: "Adaptiv — Portfolio Generator",
   },
   twitter: {
     card: "summary_large_image",
@@ -60,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
-      <body className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable} antialiased font-sans`}>
+      <body suppressHydrationWarning className={`${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable} antialiased font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
